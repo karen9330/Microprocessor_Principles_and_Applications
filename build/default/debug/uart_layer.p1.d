@@ -1,3 +1,4 @@
 build/default/debug/uart_layer.p1:  \
 uart_layer.c  \
-uart_layer.h 
+uart_layer.h  \
+global.h 

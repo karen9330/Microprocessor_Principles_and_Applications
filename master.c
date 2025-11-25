@@ -4,15 +4,17 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <time.h>
+#include <string.h>
 
 #include "conbits.h"
 #include "master.h"
 #include "uart_layer.h"
+#include "global.h"
 
 void timer0_init(void) {
-    // seting RD2
-    TRISDbits.RD2 = 0;
-    LATDbits.LATD2 = 0;
+    // seting RD4
+    TRISDbits.RD5 = 0;
+    LATDbits.LATD5 = 0;
     
     // seting timer0 
     T0CONbits.PSA = 0;      // prescaler: 1:256
@@ -25,7 +27,6 @@ void timer0_init(void) {
     INTCON2bits.TMR0IP = 1;
     TMR0H = 0xE1;   // every 1 sec issues an intrrupt
     TMR0L = 0x7C;
-    T0CONbits.TMR0ON = 1; 
 }
 
 void system_init(void) {
@@ -48,22 +49,31 @@ void system_init(void) {
     INTCONbits.GIEL = 1; // Enables all low-priority peripheral interrupts
 }
 
-void generate_apple(uint16_t *x, uint16_t *y) {
-    uint16_t max_x = 480;
-    uint16_t max_y = 320;
-    uint16_t min = 0;
+void generate_apple(uint8_t *x, uint8_t *y) {
+    uint16_t max_x = 480 / GRID_SIZE - 1;
+    uint16_t max_y = 320 / GRID_SIZE - 1;
     
-    srand(time(NULL));
-    *x = rand() % (max_x - min + 1) + min;
-    *y = rand() % (max_y - min + 1) + min;
+    *x = rand() % max_x;
+    *y = rand() % max_y;
 }
 
-void send_apple_pos(uint16_t x, uint16_t y) {
-    uint8_t buff[4];
-    buff[0] = (x >> 8) & 0xFF;  // high bytes x
-    buff[1] = x & 0xFF;     // low bytes x
-    buff[2] = (y >> 8) & 0xFF;  // high bytes y
-    buff[3] = y & 0xFF;     // low bytes y
-    uart_send_array(buff, 4);
+void send_apple_pos(uint8_t x, uint8_t y) {
+    /*uint8_t buff[4];
+    buff[0] = x;
+    buff[1] = y; 
+     uart_send_array(buff, 2);
+    */
+    
+    // test with putty
+    char buff[32];
+    sprintf(buff, "APPLE x=%u y=%u\r\n", x, y);
+    uart_send_array((uint8_t *)buff, strlen(buff));
+}
+
+void handle_game_over() {
+    // tft_draw(game over)
+    char buff[32];
+    sprintf(buff, "GAME OVER\r\n");
+    uart_send_array((uint8_t *)buff, strlen(buff));
 }
 

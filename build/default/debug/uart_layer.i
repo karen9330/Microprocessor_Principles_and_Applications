@@ -4845,6 +4845,159 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 3 "uart_layer.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
+# 12 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
+# 143 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef __int24 ssize_t;
+# 255 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef long long off_t;
+# 409 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 25 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+
+
+
+
+
+int ungetc(int, FILE *);
+int getch(void);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+
+
+
+
+void putch(char);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+__attribute__((__format__(__printf__, 1, 2)))
+int printf(const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int fprintf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int sprintf(char *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 3, 4)))
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+__attribute__((__format__(__printf__, 1, 0)))
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 2, 0)))
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 3, 0)))
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+__attribute__((__format__(__scanf__, 1, 2)))
+int scanf(const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int fscanf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int sscanf(const char *restrict, const char *restrict, ...);
+
+__attribute__((__format__(__scanf__, 1, 0)))
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__scanf__, 2, 0)))
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 4 "uart_layer.c" 2
 # 1 "./uart_layer.h" 1
 
 
@@ -4855,38 +5008,36 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 # 7 "./uart_layer.h" 2
 
 
-
-
-extern volatile _Bool snake_updated;
-extern volatile uint8_t snake_len_rx;
-extern volatile uint8_t snake_x_rx[40];
-extern volatile uint8_t snake_y_rx[40];
-extern volatile _Bool apple_eaten;
-
 void uart_init(uint16_t gen_reg, unsigned sync,unsigned brgh, unsigned brg16);
 void uart_send(uint8_t c);
 void uart_rx_from_player(uint8_t c);
 void uart_send_array(uint8_t *c,uint16_t len);
 void uart_send_string(uint8_t *c);
-# 4 "uart_layer.c" 2
+# 5 "uart_layer.c" 2
+# 1 "./global.h" 1
+# 16 "./global.h"
+extern volatile uint8_t snake_len_rx;
+extern volatile uint8_t snake_x_rx[50];
+extern volatile uint8_t snake_y_rx[50];
+
+extern volatile _Bool is_game_over;
+extern volatile _Bool apple_eaten;
+extern volatile _Bool snake_updated;
+
+
+extern volatile _Bool uart_line_ready;
+extern volatile char uart_rx_buf[32];
+extern volatile uint8_t uart_rx_idx;
+# 6 "uart_layer.c" 2
 
 typedef enum{
-    RX_WAIT_HEADER = 0,
-    RX_WAIT_LEN,
+    RX_WAIT_MSG_TYPE = 0,
+
     RX_WAIT_DATA,
     RX_WAIT_APPLE,
 } uart_rx_state_t;
 
-volatile uart_rx_state_t rx_state = RX_WAIT_HEADER;
-volatile uint8_t rx_index = 0;
-volatile uint8_t snake_len_rx = 0;
-volatile uint8_t snake_x_rx[40] = {0};
-volatile uint8_t snake_y_rx[40] = {0};
-volatile _Bool apple_eaten = 0;
-volatile _Bool snake_updated = 0;
-
 void uart_init(uint16_t gen_reg, unsigned sync,unsigned brgh, unsigned brg16){
-
     TRISCbits.RC7 = 1;
     TRISCbits.RC6 = 1;
 
@@ -4915,20 +5066,29 @@ void uart_send(uint8_t c){
 }
 
 void uart_rx_from_player(uint8_t c) {
-    switch(rx_state) {
-        case RX_WAIT_HEADER:
-            if(c == 0xFF) {
-                rx_state = RX_WAIT_LEN;
+    static volatile uart_rx_state_t rx_state = RX_WAIT_MSG_TYPE;
+    static volatile uint8_t rx_index = 0;
 
-                memset(snake_x_rx,0,sizeof(snake_x_rx));
-                memset(snake_y_rx,0,sizeof(snake_y_rx));
+    switch(rx_state) {
+        case RX_WAIT_MSG_TYPE:
+            if(c == 0) {
+                is_game_over = 1;
+                rx_state = RX_WAIT_MSG_TYPE;
+                uart_send_array("UART\r\n", 6);
+            }
+            else {
+                rx_index = 0;
+                memset(snake_x_rx, 0, sizeof(snake_x_rx));
+                memset(snake_y_rx, 0, sizeof(snake_y_rx));
+                rx_state = RX_WAIT_DATA;
+                uart_send_array("STATE 1\r\n", 9);
             }
             break;
-        case RX_WAIT_LEN:
-            snake_len_rx = c;
-            rx_index = 0;
-            rx_state = RX_WAIT_DATA;
-            break;
+
+
+
+
+
         case RX_WAIT_DATA:
             if((rx_index & 1) == 0) {
                 snake_x_rx[rx_index/2] = c;
@@ -4936,6 +5096,7 @@ void uart_rx_from_player(uint8_t c) {
             else {
                 snake_y_rx[rx_index/2] = c;
             }
+            uart_send_array("STATE 2\r\n", 9);
             rx_index++;
             if(rx_index >= snake_len_rx * 2) {
                 rx_state = RX_WAIT_APPLE;
@@ -4944,7 +5105,8 @@ void uart_rx_from_player(uint8_t c) {
         case RX_WAIT_APPLE:
             if(c == 1) apple_eaten = 1;
             snake_updated = 1;
-            rx_state = RX_WAIT_HEADER;
+            uart_send_array("STATE 3\r\n", 9);
+            rx_state = RX_WAIT_MSG_TYPE;
             break;
     }
 }

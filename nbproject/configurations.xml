@@ -7,6 +7,8 @@
       <itemPath>uart_layer.h</itemPath>
       <itemPath>conbits.h</itemPath>
       <itemPath>master.h</itemPath>
+      <itemPath>global.h</itemPath>
+      <itemPath>putty_test.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -18,6 +20,7 @@
       <itemPath>main.c</itemPath>
       <itemPath>uart_layer.c</itemPath>
       <itemPath>master.c</itemPath>
+      <itemPath>putty_test.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

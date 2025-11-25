@@ -171,18 +171,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "5695
 [; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 5695: extern volatile RCONbits_t RCONbits __attribute__((address(0xFD0)));
 [v _RCONbits `VS237 ~T0 @X0 0 e@4048 ]
-"56 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/stdlib.h
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/stdlib.h: 56: void srand (unsigned);
-[v _srand `(v ~T0 @X0 0 ef1`ui ]
-"55 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/time.h
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/time.h: 55: time_t time (time_t *);
-[v _time `(ul ~T0 @X0 0 ef1`*ul ]
 "55 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/stdlib.h
 [; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/stdlib.h: 55: int rand (void);
 [v _rand `(i ~T0 @X0 0 ef ]
-"20 ./uart_layer.h
-[; ;./uart_layer.h: 20: void uart_send_array(uint8_t *c,uint16_t len);
+"121 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/stdio.h
+[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/stdio.h: 121: int sprintf(char *restrict, const char *restrict, ...);
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"12 ./uart_layer.h
+[; ;./uart_layer.h: 12: void uart_send_array(uint8_t *c,uint16_t len);
 [v _uart_send_array `(v ~T0 @X0 0 ef2`*uc`us ]
+"54 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h
+[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h: 54: size_t strlen (const char *);
+[v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
 "52 C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h
 [; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 52: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -663,162 +663,165 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3  =  OFF       ]
 "64
 [p x EBTRB  =  OFF       ]
-"12 master.c
-[; ;master.c: 12: void timer0_init(void) {
+"14 master.c
+[; ;master.c: 14: void timer0_init(void) {
 [v _timer0_init `(v ~T0 @X0 1 ef ]
 {
 [e :U _timer0_init ]
 [f ]
-"14
-[; ;master.c: 14:     TRISDbits.RD2 = 0;
-[e = . . _TRISDbits 1 2 -> -> 0 `i `uc ]
-"15
-[; ;master.c: 15:     LATDbits.LATD2 = 0;
-[e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
-"18
-[; ;master.c: 18:     T0CONbits.PSA = 0;
-[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
-"19
-[; ;master.c: 19:     T0CONbits.T0PS = 0b111;
-[e = . . _T0CONbits 0 0 -> -> 7 `i `uc ]
+"16
+[; ;master.c: 16:     TRISDbits.RD5 = 0;
+[e = . . _TRISDbits 1 5 -> -> 0 `i `uc ]
+"17
+[; ;master.c: 17:     LATDbits.LATD5 = 0;
+[e = . . _LATDbits 0 5 -> -> 0 `i `uc ]
 "20
-[; ;master.c: 20:     T0CONbits.T08BIT = 0;
-[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
+[; ;master.c: 20:     T0CONbits.PSA = 0;
+[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
 "21
-[; ;master.c: 21:     T0CONbits.T0CS = 0;
-[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
+[; ;master.c: 21:     T0CONbits.T0PS = 0b111;
+[e = . . _T0CONbits 0 0 -> -> 7 `i `uc ]
+"22
+[; ;master.c: 22:     T0CONbits.T08BIT = 0;
+[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
 "23
-[; ;master.c: 23:     INTCONbits.TMR0IF = 0;
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"24
-[; ;master.c: 24:     INTCONbits.TMR0IE = 1;
-[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
+[; ;master.c: 23:     T0CONbits.T0CS = 0;
+[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
 "25
-[; ;master.c: 25:     INTCON2bits.TMR0IP = 1;
-[e = . . _INTCON2bits 1 2 -> -> 1 `i `uc ]
+[; ;master.c: 25:     INTCONbits.TMR0IF = 0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
 "26
-[; ;master.c: 26:     TMR0H = 0xE1;
-[e = _TMR0H -> -> 225 `i `uc ]
+[; ;master.c: 26:     INTCONbits.TMR0IE = 1;
+[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
 "27
-[; ;master.c: 27:     TMR0L = 0x7C;
-[e = _TMR0L -> -> 124 `i `uc ]
+[; ;master.c: 27:     INTCON2bits.TMR0IP = 1;
+[e = . . _INTCON2bits 1 2 -> -> 1 `i `uc ]
 "28
-[; ;master.c: 28:     T0CONbits.TMR0ON = 1;
-[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
+[; ;master.c: 28:     TMR0H = 0xE1;
+[e = _TMR0H -> -> 225 `i `uc ]
 "29
-[; ;master.c: 29: }
+[; ;master.c: 29:     TMR0L = 0x7C;
+[e = _TMR0L -> -> 124 `i `uc ]
+"30
+[; ;master.c: 30: }
 [e :UE 310 ]
 }
-"31
-[; ;master.c: 31: void system_init(void) {
+"32
+[; ;master.c: 32: void system_init(void) {
 [v _system_init `(v ~T0 @X0 1 ef ]
 {
 [e :U _system_init ]
 [f ]
-"33
-[; ;master.c: 33:     OSCCONbits.IDLEN = 0;
-[e = . . _OSCCONbits 0 4 -> -> 0 `i `uc ]
 "34
-[; ;master.c: 34:     OSCCONbits.IRCF = 0x07;
-[e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
+[; ;master.c: 34:     OSCCONbits.IDLEN = 0;
+[e = . . _OSCCONbits 0 4 -> -> 0 `i `uc ]
 "35
-[; ;master.c: 35:     OSCCONbits.SCS = 0x03;
-[e = . . _OSCCONbits 0 0 -> -> 3 `i `uc ]
+[; ;master.c: 35:     OSCCONbits.IRCF = 0x07;
+[e = . . _OSCCONbits 0 3 -> -> 7 `i `uc ]
 "36
-[; ;master.c: 36:     while(OSCCONbits.IOFS!=1);
+[; ;master.c: 36:     OSCCONbits.SCS = 0x03;
+[e = . . _OSCCONbits 0 0 -> -> 3 `i `uc ]
+"37
+[; ;master.c: 37:     while(OSCCONbits.IOFS!=1);
 [e $U 312  ]
 [e :U 313 ]
 [e :U 312 ]
 [e $ != -> . . _OSCCONbits 0 1 `i -> 1 `i 313  ]
 [e :U 314 ]
-"39
-[; ;master.c: 39:     ADCON1 = 0x0F;
-[e = _ADCON1 -> -> 15 `i `uc ]
 "40
-[; ;master.c: 40:     TRISBbits.RB0 = 1;
-[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
+[; ;master.c: 40:     ADCON1 = 0x0F;
+[e = _ADCON1 -> -> 15 `i `uc ]
 "41
-[; ;master.c: 41:     LATBbits.LATB0 = 0;
-[e = . . _LATBbits 0 0 -> -> 0 `i `uc ]
+[; ;master.c: 41:     TRISBbits.RB0 = 1;
+[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
 "42
-[; ;master.c: 42:     INTCONbits.INT0IE = 1;
-[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
+[; ;master.c: 42:     LATBbits.LATB0 = 0;
+[e = . . _LATBbits 0 0 -> -> 0 `i `uc ]
 "43
-[; ;master.c: 43:     INTCONbits.INT0IF = 0;
+[; ;master.c: 43:     INTCONbits.INT0IE = 1;
+[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
+"44
+[; ;master.c: 44:     INTCONbits.INT0IF = 0;
 [e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"46
-[; ;master.c: 46:     RCONbits.IPEN = 1;
-[e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
 "47
-[; ;master.c: 47:     INTCONbits.GIEH = 1;
-[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
+[; ;master.c: 47:     RCONbits.IPEN = 1;
+[e = . . _RCONbits 5 7 -> -> 1 `i `uc ]
 "48
-[; ;master.c: 48:     INTCONbits.GIEL = 1;
-[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
+[; ;master.c: 48:     INTCONbits.GIEH = 1;
+[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
 "49
-[; ;master.c: 49: }
+[; ;master.c: 49:     INTCONbits.GIEL = 1;
+[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
+"50
+[; ;master.c: 50: }
 [e :UE 311 ]
 }
-"51
-[; ;master.c: 51: void generate_apple(uint16_t *x, uint16_t *y) {
-[v _generate_apple `(v ~T0 @X0 1 ef2`*us`*us ]
+"52
+[; ;master.c: 52: void generate_apple(uint8_t *x, uint8_t *y) {
+[v _generate_apple `(v ~T0 @X0 1 ef2`*uc`*uc ]
 {
 [e :U _generate_apple ]
-[v _x `*us ~T0 @X0 1 r1 ]
-[v _y `*us ~T0 @X0 1 r2 ]
+[v _x `*uc ~T0 @X0 1 r1 ]
+[v _y `*uc ~T0 @X0 1 r2 ]
 [f ]
-"52
-[; ;master.c: 52:     uint16_t max_x = 480;
-[v _max_x `us ~T0 @X0 1 a ]
-[e = _max_x -> -> 480 `i `us ]
 "53
-[; ;master.c: 53:     uint16_t max_y = 320;
-[v _max_y `us ~T0 @X0 1 a ]
-[e = _max_y -> -> 320 `i `us ]
+[; ;master.c: 53:     uint16_t max_x = 480 / 16 - 1;
+[v _max_x `us ~T0 @X0 1 a ]
+[e = _max_x -> - / -> 480 `i -> 16 `i -> 1 `i `us ]
 "54
-[; ;master.c: 54:     uint16_t min = 0;
-[v _min `us ~T0 @X0 1 a ]
-[e = _min -> -> 0 `i `us ]
+[; ;master.c: 54:     uint16_t max_y = 320 / 16 - 1;
+[v _max_y `us ~T0 @X0 1 a ]
+[e = _max_y -> - / -> 320 `i -> 16 `i -> 1 `i `us ]
 "56
-[; ;master.c: 56:     srand(time(((void*)0)));
-[e ( _srand (1 -> ( _time (1 -> -> -> 0 `i `*v `*ul `ui ]
+[; ;master.c: 56:     *x = rand() % max_x;
+[e = *U _x -> % -> ( _rand ..  `ui -> _max_x `ui `uc ]
 "57
-[; ;master.c: 57:     *x = rand() % (max_x - min + 1) + min;
-[e = *U _x -> + % -> ( _rand ..  `ui + - -> _max_x `ui -> _min `ui -> -> 1 `i `ui -> _min `ui `us ]
+[; ;master.c: 57:     *y = rand() % max_y;
+[e = *U _y -> % -> ( _rand ..  `ui -> _max_y `ui `uc ]
 "58
-[; ;master.c: 58:     *y = rand() % (max_y - min + 1) + min;
-[e = *U _y -> + % -> ( _rand ..  `ui + - -> _max_y `ui -> _min `ui -> -> 1 `i `ui -> _min `ui `us ]
-"59
-[; ;master.c: 59: }
+[; ;master.c: 58: }
 [e :UE 315 ]
 }
-"61
-[; ;master.c: 61: void send_apple_pos(uint16_t x, uint16_t y) {
-[v _send_apple_pos `(v ~T0 @X0 1 ef2`us`us ]
+"60
+[; ;master.c: 60: void send_apple_pos(uint8_t x, uint8_t y) {
+[v _send_apple_pos `(v ~T0 @X0 1 ef2`uc`uc ]
 {
 [e :U _send_apple_pos ]
-[v _x `us ~T0 @X0 1 r1 ]
-[v _y `us ~T0 @X0 1 r2 ]
+[v _x `uc ~T0 @X0 1 r1 ]
+[v _y `uc ~T0 @X0 1 r2 ]
 [f ]
-"62
-[; ;master.c: 62:     uint8_t buff[4];
-[v _buff `uc ~T0 @X0 -> 4 `i a ]
-"63
-[; ;master.c: 63:     buff[0] = (x >> 8) & 0xFF;
-[e = *U + &U _buff * -> -> -> 0 `i `ui `ux -> -> # *U &U _buff `ui `ux -> & >> -> _x `ui -> 8 `i -> -> 255 `i `ui `uc ]
-"64
-[; ;master.c: 64:     buff[1] = x & 0xFF;
-[e = *U + &U _buff * -> -> -> 1 `i `ui `ux -> -> # *U &U _buff `ui `ux -> & -> _x `ui -> -> 255 `i `ui `uc ]
-"65
-[; ;master.c: 65:     buff[2] = (y >> 8) & 0xFF;
-[e = *U + &U _buff * -> -> -> 2 `i `ui `ux -> -> # *U &U _buff `ui `ux -> & >> -> _y `ui -> 8 `i -> -> 255 `i `ui `uc ]
-"66
-[; ;master.c: 66:     buff[3] = y & 0xFF;
-[e = *U + &U _buff * -> -> -> 3 `i `ui `ux -> -> # *U &U _buff `ui `ux -> & -> _y `ui -> -> 255 `i `ui `uc ]
-"67
-[; ;master.c: 67:     uart_send_array(buff, 4);
-[e ( _uart_send_array (2 , &U _buff -> -> 4 `i `us ]
 "68
-[; ;master.c: 68: }
+[; ;master.c: 68:     char buff[32];
+[v _buff `uc ~T0 @X0 -> 32 `i a ]
+"69
+[; ;master.c: 69:     sprintf(buff, "APPLE x=%u y=%u\r\n", x, y);
+[e ( _sprintf (1 , , (. , &U _buff :s 1C -> _x `i -> _y `i ]
+"70
+[; ;master.c: 70:     uart_send_array((uint8_t *)buff, strlen(buff));
+[e ( _uart_send_array (2 , -> &U _buff `*uc -> ( _strlen (1 -> &U _buff `*Cuc `us ]
+"71
+[; ;master.c: 71: }
 [e :UE 316 ]
 }
+"73
+[; ;master.c: 73: void handle_game_over() {
+[v _handle_game_over `(v ~T0 @X0 1 ef ]
+{
+[e :U _handle_game_over ]
+[f ]
+"75
+[; ;master.c: 75:     char buff[32];
+[v _buff `uc ~T0 @X0 -> 32 `i a ]
+"76
+[; ;master.c: 76:     sprintf(buff, "GAME OVER\r\n");
+[e ( _sprintf (1 , &U _buff :s 2C ]
+"77
+[; ;master.c: 77:     uart_send_array((uint8_t *)buff, strlen(buff));
+[e ( _uart_send_array (2 , -> &U _buff `*uc -> ( _strlen (1 -> &U _buff `*Cuc `us ]
+"78
+[; ;master.c: 78: }
+[e :UE 317 ]
+}
+[p f _sprintf 8389632 ]
+[a 1C 65 80 80 76 69 32 120 61 37 117 32 121 61 37 117 13 10 0 ]
+[a 2C 71 65 77 69 32 79 86 69 82 13 10 0 ]

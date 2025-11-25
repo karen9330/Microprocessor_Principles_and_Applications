@@ -50,9 +50,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3586
 [; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3586: extern volatile unsigned char RCREG __attribute__((address(0xFAE)));
 [v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
-"19 ./uart_layer.h
-[; ;./uart_layer.h: 19: void uart_rx_from_player(uint8_t c);
-[v _uart_rx_from_player `(v ~T0 @X0 0 ef1`uc ]
+"10 ./uart_layer.h
+[; ;./uart_layer.h: 10: void uart_send(uint8_t c);
+[v _uart_send `(v ~T0 @X0 0 ef1`uc ]
 "6696 C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h
 [; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 6696:     struct {
 [s S275 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -93,16 +93,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1338
 [; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 1338: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
 [v _LATDbits `VS53 ~T0 @X0 0 e@3980 ]
+"12 ./uart_layer.h
+[; ;./uart_layer.h: 12: void uart_send_array(uint8_t *c,uint16_t len);
+[v _uart_send_array `(v ~T0 @X0 0 ef2`*uc`us ]
 [t T42 __interrupt low_priority ]
 [p mainexit ]
-"17 ./master.h
-[; ;./master.h: 17: void system_init(void);
+"15 ./master.h
+[; ;./master.h: 15: void system_init(void);
 [v _system_init `(v ~T0 @X0 0 ef ]
-"17 ./uart_layer.h
-[; ;./uart_layer.h: 17: void uart_init(uint16_t gen_reg, unsigned sync,unsigned brgh, unsigned brg16);
+"9 ./uart_layer.h
+[; ;./uart_layer.h: 9: void uart_init(uint16_t gen_reg, unsigned sync,unsigned brgh, unsigned brg16);
 [v _uart_init `(v ~T0 @X0 0 ef4`us`ui`ui`ui ]
-"18 ./master.h
-[; ;./master.h: 18: void timer0_init(void) ;
+"16 ./master.h
+[; ;./master.h: 16: void timer0_init(void) ;
 [v _timer0_init `(v ~T0 @X0 0 ef ]
 [v F205 `(v ~T0 @X0 1 tf1`ul ]
 "20 C:\Program Files\Microchip\xc8\v3.00\pic\include/builtins.h
@@ -123,27 +126,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2173
 [; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 2173: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF95)));
 [v _TRISDbits `VS77 ~T0 @X0 0 e@3989 ]
+"6172
+[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 6172:     struct {
+[s S262 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S262 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
+"6180
+[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 6180:     struct {
+[s S263 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S263 . T0PS0 T0PS1 T0PS2 T0PS3 . T016BIT ]
+"6171
+[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 6171: typedef union {
+[u S261 `S262 1 `S263 1 ]
+[n S261 . . . ]
+"6189
+[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 6189: extern volatile T0CONbits_t T0CONbits __attribute__((address(0xFD5)));
+[v _T0CONbits `VS261 ~T0 @X0 0 e@4053 ]
+"56 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/stdlib.h
+[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/stdlib.h: 56: void srand (unsigned);
+[v _srand `(v ~T0 @X0 0 ef1`ui ]
+"17 ./master.h
+[; ;./master.h: 17: void generate_apple(uint8_t *x, uint8_t *y);
+[v _generate_apple `(v ~T0 @X0 0 ef2`*uc`*uc ]
+"18
+[; ;./master.h: 18: void send_apple_pos(uint8_t x, uint8_t y);
+[v _send_apple_pos `(v ~T0 @X0 0 ef2`uc`uc ]
+"4 ./putty_test.h
+[; ;./putty_test.h: 4: void parse_command_from_pc(char *line);
+[v _parse_command_from_pc `(v ~T0 @X0 0 ef1`*uc ]
 "19 ./master.h
-[; ;./master.h: 19: void generate_apple(uint16_t *x, uint16_t *y);
-[v _generate_apple `(v ~T0 @X0 0 ef2`*us`*us ]
-"20
-[; ;./master.h: 20: void send_apple_pos(uint16_t x, uint16_t y);
-[v _send_apple_pos `(v ~T0 @X0 0 ef2`us`us ]
-"11 ./uart_layer.h
-[; ;./uart_layer.h: 11: extern volatile _Bool snake_updated;
-[v _snake_updated `Va ~T0 @X0 0 e ]
-"13
-[; ;./uart_layer.h: 13: extern volatile uint8_t snake_x_rx[40];
-[v _snake_x_rx `Vuc ~T0 @X0 -> 0 `x e ]
-"14
-[; ;./uart_layer.h: 14: extern volatile uint8_t snake_y_rx[40];
-[v _snake_y_rx `Vuc ~T0 @X0 -> 0 `x e ]
-"12
-[; ;./uart_layer.h: 12: extern volatile uint8_t snake_len_rx;
-[v _snake_len_rx `Vuc ~T0 @X0 0 e ]
-"15
-[; ;./uart_layer.h: 15: extern volatile _Bool apple_eaten;
-[v _apple_eaten `Va ~T0 @X0 0 e ]
+[; ;./master.h: 19: void handle_game_over();
+[v _handle_game_over `(v ~T0 @X0 0 e? ]
 "52 C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h
 [; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 52: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -624,264 +636,473 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3  =  OFF       ]
 "64
 [p x EBTRB  =  OFF       ]
-"11 main.c
-[; ;main.c: 11: volatile uint16_t sec_counter = 0;
-[v _sec_counter `Vus ~T0 @X0 1 e ]
+"13 main.c
+[; ;main.c: 13: static volatile uint16_t sec_counter = 0;
+[v _sec_counter `Vus ~T0 @X0 1 s ]
 [i _sec_counter
 -> -> 0 `i `us
 ]
-"12
-[; ;main.c: 12: volatile _Bool game_start = 0;
-[v _game_start `Va ~T0 @X0 1 e ]
+"14
+[; ;main.c: 14: static volatile _Bool game_start = 0;
+[v _game_start `Va ~T0 @X0 1 s ]
 [i _game_start
 -> -> 0 `i `a
 ]
-"13
-[; ;main.c: 13: volatile uint8_t uart_char;
-[v _uart_char `Vuc ~T0 @X0 1 e ]
+"16
+[; ;main.c: 16: volatile uint8_t snake_len_rx = 3;
+[v _snake_len_rx `Vuc ~T0 @X0 1 e ]
+[i _snake_len_rx
+-> -> 3 `i `uc
+]
+"17
+[; ;main.c: 17: volatile uint8_t snake_x_rx[50] = {0};
+[v _snake_x_rx `Vuc ~T0 @X0 -> 50 `i e ]
+[i _snake_x_rx
+:U ..
+-> -> 0 `i `uc
+..
+]
+"18
+[; ;main.c: 18: volatile uint8_t snake_y_rx[50] = {0};
+[v _snake_y_rx `Vuc ~T0 @X0 -> 50 `i e ]
+[i _snake_y_rx
+:U ..
+-> -> 0 `i `uc
+..
+]
+"19
+[; ;main.c: 19: volatile _Bool apple_eaten = 0;
+[v _apple_eaten `Va ~T0 @X0 1 e ]
+[i _apple_eaten
+-> -> 0 `i `a
+]
+"20
+[; ;main.c: 20: volatile _Bool is_game_over = 0;
+[v _is_game_over `Va ~T0 @X0 1 e ]
+[i _is_game_over
+-> -> 0 `i `a
+]
+"21
+[; ;main.c: 21: volatile _Bool snake_updated = 0;
+[v _snake_updated `Va ~T0 @X0 1 e ]
+[i _snake_updated
+-> -> 0 `i `a
+]
+"24
+[; ;main.c: 24: volatile _Bool uart_line_ready = 0;
+[v _uart_line_ready `Va ~T0 @X0 1 e ]
+[i _uart_line_ready
+-> -> 0 `i `a
+]
+"25
+[; ;main.c: 25: volatile char uart_rx_buf[32];
+[v _uart_rx_buf `Vuc ~T0 @X0 -> 32 `i e ]
+"26
+[; ;main.c: 26: volatile uint8_t uart_rx_idx = 0;
+[v _uart_rx_idx `Vuc ~T0 @X0 1 e ]
+[i _uart_rx_idx
+-> -> 0 `i `uc
+]
 [v $root$_high_isr `(v ~T0 @X0 0 e ]
-"15
-[; ;main.c: 15: void __attribute__((picinterrupt(("")))) high_isr(void){
+"28
+[; ;main.c: 28: void __attribute__((picinterrupt(("")))) high_isr(void){
 [v _high_isr `(v ~T41 @X0 1 ef ]
 {
 [e :U _high_isr ]
 [f ]
-"16
-[; ;main.c: 16:     if(PIR1bits.RCIF){
+"29
+[; ;main.c: 29:     if(PIR1bits.RCIF){
 [e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 307  ]
 {
-"17
-[; ;main.c: 17:         if(RCSTAbits.FERR){
+"30
+[; ;main.c: 30:         if(RCSTAbits.FERR){
 [e $ ! != -> . . _RCSTAbits 0 2 `i -> 0 `i 308  ]
 {
-"18
-[; ;main.c: 18:             uint8_t er = RCREG;
+"31
+[; ;main.c: 31:             uint8_t er = RCREG;
 [v _er `uc ~T0 @X0 1 a ]
 [e = _er _RCREG ]
-"19
-[; ;main.c: 19:         }
+"32
+[; ;main.c: 32:         }
 }
 [e $U 309  ]
-"20
-[; ;main.c: 20:         else if(RCSTAbits.OERR){
+"33
+[; ;main.c: 33:         else if(RCSTAbits.OERR){
 [e :U 308 ]
 [e $ ! != -> . . _RCSTAbits 0 1 `i -> 0 `i 310  ]
 {
-"21
-[; ;main.c: 21:             RCSTAbits.CREN = 0;
+"34
+[; ;main.c: 34:             RCSTAbits.CREN = 0;
 [e = . . _RCSTAbits 0 4 -> -> 0 `i `uc ]
-"22
-[; ;main.c: 22:             RCSTAbits.CREN = 1;
+"35
+[; ;main.c: 35:             RCSTAbits.CREN = 1;
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"23
-[; ;main.c: 23:         }
+"36
+[; ;main.c: 36:         }
 }
 [e $U 311  ]
-"24
-[; ;main.c: 24:         else{
+"41
+[; ;main.c: 41:         else {
 [e :U 310 ]
 {
-"25
-[; ;main.c: 25:             uint8_t c = RCREG;
+"42
+[; ;main.c: 42:             char c = RCREG;
 [v _c `uc ~T0 @X0 1 a ]
-[e = _c _RCREG ]
-"26
-[; ;main.c: 26:             uart_rx_from_player(c);
-[e ( _uart_rx_from_player (1 _c ]
-"27
-[; ;main.c: 27:         }
+[e = _c -> _RCREG `uc ]
+"43
+[; ;main.c: 43:             if(!uart_line_ready) {
+[e $ ! ! != -> _uart_line_ready `i -> 0 `i 312  ]
+{
+"44
+[; ;main.c: 44:                 if(c == '\r') {
+[e $ ! == -> _c `ui -> 13 `ui 313  ]
+{
+"45
+[; ;main.c: 45:                     uart_rx_buf[uart_rx_idx] = '\0';
+[e = *U + &U _uart_rx_buf * -> _uart_rx_idx `ux -> -> # *U &U _uart_rx_buf `ui `ux -> -> 0 `ui `uc ]
+"46
+[; ;main.c: 46:                     uart_send('\r');
+[e ( _uart_send (1 -> -> 13 `ui `uc ]
+"47
+[; ;main.c: 47:                     uart_send('\n');
+[e ( _uart_send (1 -> -> 10 `ui `uc ]
+"48
+[; ;main.c: 48:                     uart_line_ready = 1;
+[e = _uart_line_ready -> -> 1 `i `a ]
+"49
+[; ;main.c: 49:                 }
+}
+[e $U 314  ]
+"50
+[; ;main.c: 50:                 else {
+[e :U 313 ]
+{
+"51
+[; ;main.c: 51:                     uart_rx_buf[uart_rx_idx++] = c;
+[e = *U + &U _uart_rx_buf * -> ++ _uart_rx_idx -> -> 1 `i `Vuc `ux -> -> # *U &U _uart_rx_buf `ui `ux _c ]
+"52
+[; ;main.c: 52:                     uart_send(c);
+[e ( _uart_send (1 -> _c `uc ]
+"53
+[; ;main.c: 53:                 }
+}
+[e :U 314 ]
+"54
+[; ;main.c: 54:             }
+}
+[e :U 312 ]
+"55
+[; ;main.c: 55:         }
 }
 [e :U 311 ]
 [e :U 309 ]
-"28
-[; ;main.c: 28:         PIR1bits.RCIF=0;
+"56
+[; ;main.c: 56:         PIR1bits.RCIF=0;
 [e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-"29
-[; ;main.c: 29:     }
+"57
+[; ;main.c: 57:     }
 }
 [e :U 307 ]
-"30
-[; ;main.c: 30:     if(INTCONbits.TMR0IF) {
-[e $ ! != -> . . _INTCONbits 0 2 `i -> 0 `i 312  ]
+"58
+[; ;main.c: 58:     if(INTCONbits.TMR0IF) {
+[e $ ! != -> . . _INTCONbits 0 2 `i -> 0 `i 315  ]
 {
-"31
-[; ;main.c: 31:         TMR0H = 0xE1;
+"59
+[; ;main.c: 59:         TMR0H = 0xE1;
 [e = _TMR0H -> -> 225 `i `uc ]
-"32
-[; ;main.c: 32:         TMR0L = 0x7C;
+"60
+[; ;main.c: 60:         TMR0L = 0x7C;
 [e = _TMR0L -> -> 124 `i `uc ]
-"33
-[; ;main.c: 33:         LATDbits.LATD2 = 0;
+"61
+[; ;main.c: 61:         LATDbits.LATD2 = 0;
 [e = . . _LATDbits 0 2 -> -> 0 `i `uc ]
-"35
-[; ;main.c: 35:         sec_counter++;
+"63
+[; ;main.c: 63:         sec_counter++;
 [e ++ _sec_counter -> -> 1 `i `Vus ]
-"36
-[; ;main.c: 36:         if (sec_counter >= 120) {
-[e $ ! >= -> _sec_counter `ui -> -> 120 `i `ui 313  ]
+"64
+[; ;main.c: 64:         if (sec_counter >= 0.5 * 60) {
+[e $ ! >= -> -> _sec_counter `ui `d * .0.5 -> -> 60 `i `d 316  ]
 {
-"37
-[; ;main.c: 37:             sec_counter = 0;
+"65
+[; ;main.c: 65:             sec_counter = 0;
 [e = _sec_counter -> -> 0 `i `us ]
-"39
-[; ;main.c: 39:             LATDbits.LATD2 = 1;
+"67
+[; ;main.c: 67:             LATDbits.LATD2 = 1;
 [e = . . _LATDbits 0 2 -> -> 1 `i `uc ]
-"41
-[; ;main.c: 41:         }
+"68
+[; ;main.c: 68:             uart_send_array( "TIME\r\n", 6);
+[e ( _uart_send_array (2 , :s 1C -> -> 6 `i `us ]
+"69
+[; ;main.c: 69:             is_game_over = 1;
+[e = _is_game_over -> -> 1 `i `a ]
+"70
+[; ;main.c: 70:         }
 }
-[e :U 313 ]
-"42
-[; ;main.c: 42:         INTCONbits.TMR0IF = 0;
+[e :U 316 ]
+"71
+[; ;main.c: 71:         INTCONbits.TMR0IF = 0;
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"43
-[; ;main.c: 43:     }
+"72
+[; ;main.c: 72:     }
 }
-[e :U 312 ]
-"44
-[; ;main.c: 44:     if(INTCONbits.INT0IF) {
-[e $ ! != -> . . _INTCONbits 0 1 `i -> 0 `i 314  ]
+[e :U 315 ]
+"73
+[; ;main.c: 73:     if(INTCONbits.INT0IF) {
+[e $ ! != -> . . _INTCONbits 0 1 `i -> 0 `i 317  ]
 {
-"45
-[; ;main.c: 45:         game_start = 1;
+"74
+[; ;main.c: 74:         game_start = 1;
 [e = _game_start -> -> 1 `i `a ]
-"46
-[; ;main.c: 46:         INTCONbits.INT0IF = 0;
+"75
+[; ;main.c: 75:         INTCONbits.INT0IF = 0;
 [e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
-"47
-[; ;main.c: 47:     }
+"76
+[; ;main.c: 76:     }
 }
-[e :U 314 ]
-"48
-[; ;main.c: 48: }
+[e :U 317 ]
+"77
+[; ;main.c: 77: }
 [e :UE 306 ]
 }
 [v $root$_low_isr `(v ~T0 @X0 0 e ]
-"50
-[; ;main.c: 50: void __attribute__((picinterrupt(("low_priority")))) low_isr(void){
+"79
+[; ;main.c: 79: void __attribute__((picinterrupt(("low_priority")))) low_isr(void){
 [v _low_isr `(v ~T42 @X0 1 ef ]
 {
 [e :U _low_isr ]
 [f ]
-"51
-[; ;main.c: 51:     if(0){
-[e $ ! != -> 0 `i -> 0 `i 316  ]
+"80
+[; ;main.c: 80:     if(0){
+[e $ ! != -> 0 `i -> 0 `i 319  ]
 {
-"53
-[; ;main.c: 53:     }
+"82
+[; ;main.c: 82:     }
 }
-[e :U 316 ]
-"54
-[; ;main.c: 54: }
-[e :UE 315 ]
+[e :U 319 ]
+"83
+[; ;main.c: 83: }
+[e :UE 318 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"56
-[; ;main.c: 56: void main(void){
+"85
+[; ;main.c: 85: void main(void){
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"57
-[; ;main.c: 57:     system_init();
+"87
+[; ;main.c: 87:     uint8_t prev_tail_x = 0, prev_tail_y = 0;
+[v _prev_tail_x `uc ~T0 @X0 1 a ]
+[e = _prev_tail_x -> -> 0 `i `uc ]
+[v _prev_tail_y `uc ~T0 @X0 1 a ]
+[e = _prev_tail_y -> -> 0 `i `uc ]
+"88
+[; ;main.c: 88:     uint8_t apple_x = 0, apple_y = 0;
+[v _apple_x `uc ~T0 @X0 1 a ]
+[e = _apple_x -> -> 0 `i `uc ]
+[v _apple_y `uc ~T0 @X0 1 a ]
+[e = _apple_y -> -> 0 `i `uc ]
+"89
+[; ;main.c: 89:     _Bool first_frame = 1;
+[v _first_frame `a ~T0 @X0 1 a ]
+[e = _first_frame -> -> 1 `i `a ]
+"91
+[; ;main.c: 91:     system_init();
 [e ( _system_init ..  ]
-"58
-[; ;main.c: 58:     uint16_t apple_x, apple_y;
-[v _apple_x `us ~T0 @X0 1 a ]
-[v _apple_y `us ~T0 @X0 1 a ]
-"60
-[; ;main.c: 60:     uart_init(51,0,1,0);
+"93
+[; ;main.c: 93:     uart_init(51,0,1,0);
 [e ( _uart_init (4 , , , -> -> 51 `i `us -> -> 0 `i `ui -> -> 1 `i `ui -> -> 0 `i `ui ]
-"61
-[; ;main.c: 61:     timer0_init();
+"94
+[; ;main.c: 94:     timer0_init();
 [e ( _timer0_init ..  ]
-"63
-[; ;main.c: 63:     _delay((unsigned long)((2000)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"65
-[; ;main.c: 65:     TRISDbits.RD1 = 0;
-[e = . . _TRISDbits 1 1 -> -> 0 `i `uc ]
-"66
-[; ;main.c: 66:     LATDbits.LATD1 = 1;
-[e = . . _LATDbits 0 1 -> -> 1 `i `uc ]
-"67
-[; ;main.c: 67:     while(!game_start);
-[e $U 318  ]
-[e :U 319 ]
-[e :U 318 ]
-[e $ ! != -> _game_start `i -> 0 `i 319  ]
-[e :U 320 ]
-"68
-[; ;main.c: 68:     LATDbits.LATD1 = 0;
-[e = . . _LATDbits 0 1 -> -> 0 `i `uc ]
-"70
-[; ;main.c: 70:     generate_apple(&apple_x, &apple_y);
-[e ( _generate_apple (2 , &U _apple_x &U _apple_y ]
-"71
-[; ;main.c: 71:     send_apple_pos(apple_x, apple_y);
-[e ( _send_apple_pos (2 , _apple_x _apple_y ]
-"73
-[; ;main.c: 73:     while(1){
+"95
+[; ;main.c: 95:     _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"97
+[; ;main.c: 97:     TRISDbits.RD4 = 0;
+[e = . . _TRISDbits 1 4 -> -> 0 `i `uc ]
+"98
+[; ;main.c: 98:     LATDbits.LATD4 = 1;
+[e = . . _LATDbits 0 4 -> -> 1 `i `uc ]
+"99
+[; ;main.c: 99:     while(!game_start);
+[e $U 321  ]
 [e :U 322 ]
+[e :U 321 ]
+[e $ ! != -> _game_start `i -> 0 `i 322  ]
+[e :U 323 ]
+"100
+[; ;main.c: 100:     LATDbits.LATD4 = 0;
+[e = . . _LATDbits 0 4 -> -> 0 `i `uc ]
+"101
+[; ;main.c: 101:     T0CONbits.TMR0ON = 1;
+[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
+"103
+[; ;main.c: 103:     uint16_t seed = (TMR0H << 8) | TMR0L;
+[v _seed `us ~T0 @X0 1 a ]
+[e = _seed -> | << -> _TMR0H `i -> 8 `i -> _TMR0L `i `us ]
+"104
+[; ;main.c: 104:     srand(seed);
+[e ( _srand (1 -> _seed `ui ]
+"106
+[; ;main.c: 106:     generate_apple(&apple_x, &apple_y);
+[e ( _generate_apple (2 , &U _apple_x &U _apple_y ]
+"107
+[; ;main.c: 107:     send_apple_pos(apple_x, apple_y);
+[e ( _send_apple_pos (2 , _apple_x _apple_y ]
+"109
+[; ;main.c: 109:     while(1){
+[e :U 325 ]
 {
-"74
-[; ;main.c: 74:         if(snake_updated) {
-[e $ ! != -> _snake_updated `i -> 0 `i 324  ]
+"111
+[; ;main.c: 111:         if(uart_line_ready) {
+[e $ ! != -> _uart_line_ready `i -> 0 `i 327  ]
 {
-"75
-[; ;main.c: 75:             for (uint8_t i = 0; i < snake_len_rx; i++) {
+"112
+[; ;main.c: 112:             parse_command_from_pc(uart_rx_buf);
+[e ( _parse_command_from_pc (1 -> &U _uart_rx_buf `*uc ]
+"113
+[; ;main.c: 113:             uart_line_ready = 0;
+[e = _uart_line_ready -> -> 0 `i `a ]
+"114
+[; ;main.c: 114:             for(int i = 0; i < 32 ; i++)
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 32 `i 328  ]
+[e $U 329  ]
+[e :U 328 ]
+"115
+[; ;main.c: 115:                uart_rx_buf[i] = '\0';
+[e = *U + &U _uart_rx_buf * -> -> _i `ui `ux -> -> # *U &U _uart_rx_buf `ui `ux -> -> 0 `ui `uc ]
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 32 `i 328  ]
+[e :U 329 ]
+}
+"116
+[; ;main.c: 116:             uart_rx_idx = 0;
+[e = _uart_rx_idx -> -> 0 `i `uc ]
+"117
+[; ;main.c: 117:         }
+}
+[e :U 327 ]
+"118
+[; ;main.c: 118:         if(snake_updated) {
+[e $ ! != -> _snake_updated `i -> 0 `i 331  ]
+{
+"119
+[; ;main.c: 119:             if (first_frame) {
+[e $ ! != -> _first_frame `i -> 0 `i 332  ]
+{
+"121
+[; ;main.c: 121:                 for (uint8_t i = 0; i < snake_len_rx; i++) {
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $U 328  ]
-[e :U 325 ]
+[e $U 336  ]
+[e :U 333 ]
 {
-"76
-[; ;main.c: 76:                 uint16_t px = snake_x_rx[i] * 16;
-[v _px `us ~T0 @X0 1 a ]
-[e = _px -> * -> *U + &U _snake_x_rx * -> _i `ux -> -> # *U &U _snake_x_rx `ui `ux `i -> 16 `i `us ]
-"77
-[; ;main.c: 77:                 uint16_t py = snake_y_rx[i] * 16;
-[v _py `us ~T0 @X0 1 a ]
-[e = _py -> * -> *U + &U _snake_y_rx * -> _i `ux -> -> # *U &U _snake_y_rx `ui `ux `i -> 16 `i `us ]
-"80
-[; ;main.c: 80:             }
+"123
+[; ;main.c: 123:                 }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 328 ]
-[e $ < -> _i `i -> _snake_len_rx `i 325  ]
-[e :U 326 ]
+[e :U 336 ]
+[e $ < -> _i `i -> _snake_len_rx `i 333  ]
+[e :U 334 ]
 }
-"82
-[; ;main.c: 82:             snake_updated = 0;
+"125
+[; ;main.c: 125:                 prev_tail_x = snake_x_rx[snake_len_rx - 1];
+[e = _prev_tail_x *U + &U _snake_x_rx * -> -> - -> _snake_len_rx `i -> 1 `i `ui `ux -> -> # *U &U _snake_x_rx `ui `ux ]
+"126
+[; ;main.c: 126:                 prev_tail_y = snake_y_rx[snake_len_rx - 1];
+[e = _prev_tail_y *U + &U _snake_y_rx * -> -> - -> _snake_len_rx `i -> 1 `i `ui `ux -> -> # *U &U _snake_y_rx `ui `ux ]
+"127
+[; ;main.c: 127:                 first_frame = 0;
+[e = _first_frame -> -> 0 `i `a ]
+"128
+[; ;main.c: 128:             }
+}
+[e $U 337  ]
+"129
+[; ;main.c: 129:             else {
+[e :U 332 ]
+{
+"133
+[; ;main.c: 133:                 prev_tail_x = snake_x_rx[snake_len_rx - 1];
+[e = _prev_tail_x *U + &U _snake_x_rx * -> -> - -> _snake_len_rx `i -> 1 `i `ui `ux -> -> # *U &U _snake_x_rx `ui `ux ]
+"134
+[; ;main.c: 134:                 prev_tail_y = snake_y_rx[snake_len_rx - 1];
+[e = _prev_tail_y *U + &U _snake_y_rx * -> -> - -> _snake_len_rx `i -> 1 `i `ui `ux -> -> # *U &U _snake_y_rx `ui `ux ]
+"135
+[; ;main.c: 135:             }
+}
+[e :U 337 ]
+"137
+[; ;main.c: 137:             snake_updated = 0;
 [e = _snake_updated -> -> 0 `i `a ]
-"83
-[; ;main.c: 83:         }
+"138
+[; ;main.c: 138:         }
+}
+[e :U 331 ]
+"140
+[; ;main.c: 140:         if(apple_eaten) {
+[e $ ! != -> _apple_eaten `i -> 0 `i 338  ]
+{
+"143
+[; ;main.c: 143:             generate_apple(&apple_x, &apple_y);
+[e ( _generate_apple (2 , &U _apple_x &U _apple_y ]
+"144
+[; ;main.c: 144:             send_apple_pos(apple_x, apple_y);
+[e ( _send_apple_pos (2 , _apple_x _apple_y ]
+"147
+[; ;main.c: 147:             apple_eaten = 0;
+[e = _apple_eaten -> -> 0 `i `a ]
+"148
+[; ;main.c: 148:         }
+}
+[e :U 338 ]
+"150
+[; ;main.c: 150:         if(is_game_over) {
+[e $ ! != -> _is_game_over `i -> 0 `i 339  ]
+{
+"151
+[; ;main.c: 151:             uart_send_array("MAIN\r\n", 6);
+[e ( _uart_send_array (2 , :s 2C -> -> 6 `i `us ]
+"152
+[; ;main.c: 152:             handle_game_over();
+[e ( _handle_game_over ..  ]
+"153
+[; ;main.c: 153:             break;
+[e $U 326  ]
+"154
+[; ;main.c: 154:         }
+}
+[e :U 339 ]
+"155
+[; ;main.c: 155:     }
 }
 [e :U 324 ]
-"85
-[; ;main.c: 85:         if(apple_eaten) {
-[e $ ! != -> _apple_eaten `i -> 0 `i 329  ]
+[e $U 325  ]
+[e :U 326 ]
+"157
+[; ;main.c: 157:     while(1) {
+[e :U 341 ]
 {
-"88
-[; ;main.c: 88:             generate_apple(&apple_x, &apple_y);
-[e ( _generate_apple (2 , &U _apple_x &U _apple_y ]
-"89
-[; ;main.c: 89:             send_apple_pos(apple_x, apple_y);
-[e ( _send_apple_pos (2 , _apple_x _apple_y ]
-"92
-[; ;main.c: 92:             apple_eaten = 0;
-[e = _apple_eaten -> -> 0 `i `a ]
-"93
-[; ;main.c: 93:         }
+"158
+[; ;main.c: 158:         TRISDbits.RD7 = 0;
+[e = . . _TRISDbits 1 7 -> -> 0 `i `uc ]
+"159
+[; ;main.c: 159:         LATDbits.LATD7 = 1;
+[e = . . _LATDbits 0 7 -> -> 1 `i `uc ]
+"160
+[; ;main.c: 160:     }
 }
-[e :U 329 ]
-"95
-[; ;main.c: 95:     }
+[e :U 340 ]
+[e $U 341  ]
+[e :U 342 ]
+"161
+[; ;main.c: 161: }
+[e :UE 320 ]
 }
-[e :U 321 ]
-[e $U 322  ]
-[e :U 323 ]
-"96
-[; ;main.c: 96: }
-[e :UE 317 ]
-}
+[a 2C 77 65 73 78 13 10 0 ]
+[a 1C 84 73 77 69 13 10 0 ]

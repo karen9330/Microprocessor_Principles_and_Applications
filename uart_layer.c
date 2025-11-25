@@ -1,24 +1,17 @@
 #include <xc.h>
 #include <string.h>
+#include <stdio.h>
 #include "uart_layer.h"
+#include "global.h"
 
 typedef enum{
-    RX_WAIT_HEADER = 0,
-    RX_WAIT_LEN,
+    RX_WAIT_MSG_TYPE = 0,
+    //RX_WAIT_LEN,
     RX_WAIT_DATA,
     RX_WAIT_APPLE,
 } uart_rx_state_t;
 
-volatile uart_rx_state_t rx_state = RX_WAIT_HEADER;
-volatile uint8_t rx_index = 0;
-volatile uint8_t snake_len_rx = 0;
-volatile uint8_t snake_x_rx[MAX_SEGMENTS] = {0};
-volatile uint8_t snake_y_rx[MAX_SEGMENTS] = {0};
-volatile bool apple_eaten = false;
-volatile bool snake_updated = false;
-
 void uart_init(uint16_t gen_reg, unsigned sync,unsigned brgh, unsigned brg16){
-    
     TRISCbits.RC7 = 1;
     TRISCbits.RC6 = 1;
     
@@ -47,20 +40,29 @@ void uart_send(uint8_t c){
 }
 
 void  uart_rx_from_player(uint8_t c) {
+    static volatile uart_rx_state_t rx_state = RX_WAIT_MSG_TYPE;
+    static volatile uint8_t rx_index = 0;
+    
     switch(rx_state) {
-        case RX_WAIT_HEADER:
-            if(c == 0xFF) { 
-                rx_state = RX_WAIT_LEN; 
-                // clear after each transmission
-                memset(snake_x_rx,0,sizeof(snake_x_rx));
-                memset(snake_y_rx,0,sizeof(snake_y_rx));
+        case RX_WAIT_MSG_TYPE:
+            if(c == GAME_OVER) {
+                is_game_over = true;
+                rx_state = RX_WAIT_MSG_TYPE;
+                uart_send_array("UART\r\n", 6);
+            }
+            else {
+                rx_index = 0;
+                memset(snake_x_rx, 0, sizeof(snake_x_rx));
+                memset(snake_y_rx, 0, sizeof(snake_y_rx));
+                rx_state = RX_WAIT_DATA;
+                uart_send_array("STATE 1\r\n", 9);
             }
             break;
-        case RX_WAIT_LEN:
+        /*case RX_WAIT_LEN:
             snake_len_rx = c;
             rx_index = 0;
             rx_state = RX_WAIT_DATA;
-            break;
+            break;*/
         case RX_WAIT_DATA:
             if((rx_index & 1) == 0) {   // even: x
                 snake_x_rx[rx_index/2] = c;
@@ -68,6 +70,7 @@ void  uart_rx_from_player(uint8_t c) {
             else {  // odd: y
                 snake_y_rx[rx_index/2] = c;
             }
+            uart_send_array("STATE 2\r\n", 9);
             rx_index++;
             if(rx_index >= snake_len_rx * 2) {
                 rx_state = RX_WAIT_APPLE;
@@ -76,7 +79,8 @@ void  uart_rx_from_player(uint8_t c) {
         case RX_WAIT_APPLE:
             if(c == 1) apple_eaten = true;
             snake_updated = true;   
-            rx_state = RX_WAIT_HEADER;
+            uart_send_array("STATE 3\r\n", 9);
+            rx_state = RX_WAIT_MSG_TYPE;
             break;
     }
 }

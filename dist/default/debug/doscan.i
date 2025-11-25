@@ -1,4 +1,4 @@
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 285 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c" 2
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/ctype.h" 1 3
@@ -34,18 +34,46 @@ int isupper(int);
 int isxdigit(int);
 int tolower(int);
 int toupper(int);
-# 4 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/math.h" 1 3
+# 4 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/errno.h" 1 3
+# 12 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/errno.h" 3
+extern int errno;
+# 5 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdarg.h" 1 3
+
 
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/musl_xc8.h" 1 3
-# 5 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/math.h" 2 3
+# 6 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdarg.h" 2 3
 
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
+# 12 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef void * va_list[1];
+# 174 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef __int24 int24_t;
+# 210 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef __uint24 uint24_t;
+# 9 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdarg.h" 2 3
 
+#pragma intrinsic(__va_start)
+#pragma intrinsic(__va_arg)
 
-
+extern void * __va_start(void);
+extern void * __va_arg(void *, ...);
+# 6 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 1 3
+# 19 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef long int wchar_t;
+# 128 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef unsigned size_t;
+# 138 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef int ptrdiff_t;
+# 20 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 2 3
+# 7 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 1 3
 # 26 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
@@ -60,15 +88,7 @@ typedef signed char int8_t;
 
 
 typedef short int16_t;
-
-
-
-
-typedef __int24 int24_t;
-
-
-
-
+# 179 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
 typedef long int32_t;
 
 
@@ -89,15 +109,7 @@ typedef unsigned char uint8_t;
 
 
 typedef unsigned short uint16_t;
-
-
-
-
-typedef __uint24 uint24_t;
-
-
-
-
+# 215 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
 typedef unsigned long uint32_t;
 
 
@@ -146,413 +158,7 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 149 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 2 3
-# 11 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/math.h" 2 3
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
-# 39 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef float float_t;
-
-
-
-
-typedef double double_t;
-# 16 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/math.h" 2 3
-# 42 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/math.h" 3
-int __fpclassifyf(float);
-
-
-
-
-
-
-
-int __signbitf(float);
-# 59 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/math.h" 3
-double acos(double);
-float acosf(float);
-long double acosl(long double);
-
-
-
-double acosh(double);
-float acoshf(float);
-long double acoshl(long double);
-
-
-
-double asin(double);
-float asinf(float);
-long double asinl(long double);
-
-
-
-double asinh(double);
-float asinhf(float);
-long double asinhl(long double);
-
-
-
-double atan(double);
-float atanf(float);
-long double atanl(long double);
-
-
-
-double atan2(double, double);
-float atan2f(float, float);
-long double atan2l(long double, long double);
-
-
-
-double atanh(double);
-float atanhf(float);
-long double atanhl(long double);
-
-
-
-double cbrt(double);
-float cbrtf(float);
-long double cbrtl(long double);
-
-
-
-double ceil(double);
-float ceilf(float);
-long double ceill(long double);
-
-
-
-double copysign(double, double);
-float copysignf(float, float);
-long double copysignl(long double, long double);
-
-
-
-double cos(double);
-float cosf(float);
-long double cosl(long double);
-
-
-
-double cosh(double);
-float coshf(float);
-long double coshl(long double);
-
-
-
-double erf(double);
-float erff(float);
-long double erfl(long double);
-
-
-
-double erfc(double);
-float erfcf(float);
-long double erfcl(long double);
-
-
-
-double exp(double);
-float expf(float);
-long double expl(long double);
-
-
-
-double exp2(double);
-float exp2f(float);
-long double exp2l(long double);
-
-
-
-double expm1(double);
-float expm1f(float);
-long double expm1l(long double);
-
-
-
-double fabs(double);
-float fabsf(float);
-long double fabsl(long double);
-
-
-
-double fdim(double, double);
-float fdimf(float, float);
-long double fdiml(long double, long double);
-
-
-
-double floor(double);
-float floorf(float);
-long double floorl(long double);
-
-
-
-double fma(double, double, double);
-float fmaf(float, float, float);
-long double fmal(long double, long double, long double);
-
-
-
-double fmax(double, double);
-float fmaxf(float, float);
-long double fmaxl(long double, long double);
-
-
-
-double fmin(double, double);
-float fminf(float, float);
-long double fminl(long double, long double);
-
-
-
-double fmod(double, double);
-float fmodf(float, float);
-long double fmodl(long double, long double);
-
-
-
-double frexp(double, int *);
-float frexpf(float, int *);
-long double frexpl(long double, int *);
-
-
-
-double hypot(double, double);
-float hypotf(float, float);
-long double hypotl(long double, long double);
-
-
-
-int ilogb(double);
-int ilogbf(float);
-int ilogbl(long double);
-
-
-
-double ldexp(double, int);
-float ldexpf(float, int);
-long double ldexpl(long double, int);
-
-
-
-
-double lgamma(double);
-float lgammaf(float);
-long double lgammal(long double);
-
-
-
-
-long long llrint(double);
-long long llrintf(float);
-long long llrintl(long double);
-
-
-
-long long llround(double);
-long long llroundf(float);
-long long llroundl(long double);
-
-
-
-
-double log(double);
-float logf(float);
-long double logl(long double);
-
-
-
-double log10(double);
-float log10f(float);
-long double log10l(long double);
-
-
-
-double log1p(double);
-float log1pf(float);
-long double log1pl(long double);
-
-
-
-double log2(double);
-float log2f(float);
-long double log2l(long double);
-
-
-
-double logb(double);
-float logbf(float);
-long double logbl(long double);
-
-
-
-long lrint(double);
-long lrintf(float);
-long lrintl(long double);
-
-
-
-long lround(double);
-long lroundf(float);
-long lroundl(long double);
-
-
-
-double modf(double, double *);
-float modff(float, float *);
-long double modfl(long double, long double *);
-
-
-
-double nan(const char *);
-float nanf(const char *);
-long double nanl(const char *);
-
-
-
-double nearbyint(double);
-float nearbyintf(float);
-long double nearbyintl(long double);
-
-
-
-double nextafter(double, double);
-float nextafterf(float, float);
-long double nextafterl(long double, long double);
-
-
-
-double nexttoward(double, long double);
-float nexttowardf(float, long double);
-long double nexttowardl(long double, long double);
-# 326 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/math.h" 3
-double pow(double, double);
-__attribute__((nonreentrant)) float powf(float, float);
-long double powl(long double, long double);
-
-
-
-double remainder(double, double);
-float remainderf(float, float);
-long double remainderl(long double, long double);
-
-
-
-double remquo(double, double, int *);
-float remquof(float, float, int *);
-long double remquol(long double, long double, int *);
-
-
-
-double rint(double);
-float rintf(float);
-long double rintl(long double);
-
-
-
-double round(double);
-float roundf(float);
-long double roundl(long double);
-
-
-
-double scalbln(double, long);
-float scalblnf(float, long);
-long double scalblnl(long double, long);
-
-
-
-double scalbn(double, int);
-float scalbnf(float, int);
-long double scalbnl(long double, int);
-
-
-
-double sin(double);
-float sinf(float);
-long double sinl(long double);
-
-
-
-double sinh(double);
-float sinhf(float);
-long double sinhl(long double);
-
-
-
-double sqrt(double);
-float sqrtf(float);
-long double sqrtl(long double);
-
-
-
-double tan(double);
-float tanf(float);
-long double tanl(long double);
-
-
-
-double tanh(double);
-float tanhf(float);
-long double tanhl(long double);
-
-
-
-double tgamma(double);
-float tgammaf(float);
-long double tgammal(long double);
-
-
-
-double trunc(double);
-float truncf(float);
-long double truncl(long double);
-# 431 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/math.h" 3
-extern int signgam;
-
-double j0(double);
-double j1(double);
-double jn(int, double);
-
-double y0(double);
-double y1(double);
-double yn(int, double);
-# 5 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdarg.h" 1 3
-
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef void * va_list[1];
-# 9 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdarg.h" 2 3
-
-#pragma intrinsic(__va_start)
-#pragma intrinsic(__va_arg)
-
-extern void * __va_start(void);
-extern void * __va_arg(void *, ...);
-# 6 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 1 3
-# 19 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef long int wchar_t;
-# 128 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef unsigned size_t;
-# 138 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef int ptrdiff_t;
-# 20 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stddef.h" 2 3
-# 7 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c" 2
-
+# 8 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
@@ -700,7 +306,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 9 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c" 2
+# 9 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 1 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
@@ -776,7 +382,7 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 10 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c" 2
+# 10 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 1 3
 # 25 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
@@ -834,148 +440,177 @@ size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
 
 
 void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 11 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c" 2
+# 11 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/inline.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c" 2
+# 12 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdbool.h" 1 3
-# 13 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c" 2
-# 97 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
-typedef signed int vfpf_sint_t;
-typedef unsigned int vfpf_uint_t;
-# 153 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
-static int prec, width;
-static char flags;
-
-union flui {
- long double f;
-
+# 13 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/limits.h" 1 3
+# 10 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/limits.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/limits.h" 1 3
+# 11 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/limits.h" 2 3
+# 14 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c" 2
+# 54 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c"
+static _Bool asup;
+static int width;
 
 
- int32_t u;
-
-};
-# 185 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
+static int ncnv, nmatch;
+# 71 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c"
 static char dbuf[32];
 
 
-
-
-
-
-
-static void pad(FILE *fp, char *buf, int p)
+static void skipws(FILE *fp)
 {
-    int i;
-# 205 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
- if (p < 0) {
-  p = 0;
- }
-    i = 0;
-    while (i < p) {
-        fputc(' ', fp);
-        ++i;
+    int c;
+
+    while ((c = fgetc(fp)) != (-1)) {
+        if (!(((c == ' ') || ((unsigned char)((c)-'\t') < 5)))) {
+            ungetc(c, fp);
+            break;
+        }
     }
-
-
-
-
-
-        fputs((const char *)buf, fp);
-
-
-
-
-
-
-
 }
-# 1176 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
-static void
-vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
+# 482 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c"
+static int atou(FILE *fp, unsigned long long *pll)
 {
-    char c, *cp;
-    _Bool done;
+    char *ep;
+    int c, i, w;
 
- union {
 
-  vfpf_sint_t sint;
-  vfpf_uint_t uint;
+    skipws(fp);
 
-  long double f;
- } convarg;
-# 1201 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
+
+    w = width ? width : sizeof(dbuf) - 1;
+    i = 0;
+    while ((i < w) && (i < (sizeof(dbuf) - 1))) {
+        c = fgetc(fp);
+        if (c == (-1) && (width || i==0)) {
+            return c;
+        }
+        if (!i && ((c == '+') || (c == '-'))) {
+            dbuf[i] = (char)c;
+            ++i;
+            ++nmatch;
+            continue;
+        }
+        if (!(((unsigned char)((c)-'0')) < 10)) {
+   if (c != (-1)) {
+    ungetc(c, fp);
+   }
+            break;
+        }
+        dbuf[i] = (char)c;
+        ++i;
+        ++nmatch;
+    }
+    dbuf[i] = '\0';
+
+
+
+    *pll = __strtoxll(&dbuf[0],&ep,10,0);
+
+
+
+
+    return (errno || !i) ? (-1) - 1 : !asup;
+}
+# 672 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c"
+static int vfsfcnvrt(FILE *fp, char *fmt[], va_list ap)
+{
+    char *cp, ct[3];
+    int c, i;
+    long long ll;
+    unsigned long long llu;
+    long double f;
+    void *vp;
+
+
     if ((*fmt)[0] == '%') {
         ++*fmt;
 
-        flags = width = 0;
-        prec = -1;
-# 1291 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
-  cp = *fmt;
-# 1439 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
-  if (0
-# 1450 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
-    || *cp == 'u'
+        asup = width = 0;
+# 1239 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c"
+        if (*fmt[0] == 'u') {
 
-    ) {
-# 1495 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
-   convarg.uint = (vfpf_uint_t)(unsigned int)(*(unsigned int *)__va_arg(*(unsigned int **)ap, (unsigned int)0));
-
-   *fmt = cp+1;
-   switch (*cp) {
-# 1523 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
-    case 'u':
-
-     c = sizeof(dbuf);
-     do {
-      dbuf[--c] = (convarg.uint % 10) + '0';
-      convarg.uint /= 10;
-
-
-
-     } while (convarg.uint != 0 && c != 0);
-     while (c != sizeof(dbuf)) {
-      fputc(dbuf[c++], fp);
-     }
-
-
-
-     return;
-# 1589 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
+            ++*fmt;
+            i = atou(fp, &llu);
+            if (!(i < 1)) {
+                vp = (void *)(*(unsigned int * *)__va_arg(*(unsigned int * **)ap, (unsigned int *)0));
+                *(unsigned int *)vp = (unsigned int)llu;
+            }
+            return i;
+        }
+# 1448 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doscan.c"
+        if ((*fmt)[0] == '%') {
+   skipws(fp);
+   c = fgetc(fp);
+   if (c == '%') {
+    ++*fmt;
+    ++nmatch;
+    return 0;
    }
-  }
-# 1806 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\sources\\c99\\common\\doprnt.c"
+   else if (c != (-1)) {
+    ungetc(c, fp);
+   }
+   return (-1) - 1;
+        }
+
+
         ++*fmt;
-        return (void) 0;
+        return 0;
     }
 
 
-    fputc((int)(*fmt)[0], fp);
-    ++*fmt;
-    return (void) 1;
+    c = fgetc(fp);
+ if ((((*fmt[0] == ' ') || ((unsigned char)((*fmt[0])-'\t') < 5)))) {
+
+  do {
+   ++*fmt;
+  } while((((*fmt[0] == ' ') || ((unsigned char)((*fmt[0])-'\t') < 5))));
+
+  while ((((c == ' ') || ((unsigned char)((c)-'\t') < 5)))) {
+   ++nmatch;
+   c = fgetc(fp);
+  }
+  if (c != (-1)) {
+   ungetc(c, fp);
+  }
+ }
+ else if (c == *fmt[0]) {
+        ++*fmt;
+        ++nmatch;
+    } else {
+  if (c == (-1)) {
+   return (-1);
+  }
+        ungetc(c, fp);
+        return (-1) - 1;
+    }
+
+    return 0;
 }
 
-
-int vfprintf(FILE *fp, const char *fmt, va_list ap)
+int vfscanf(FILE *fp, const char *fmt, va_list ap)
 {
-
     char *cfmt;
+    int n, saved_errno;
 
     cfmt = (char *)fmt;
-
-
-
+    ncnv = nmatch = 0;
+ saved_errno = errno;
     while (*cfmt) {
-
-
-
-   vfpfcnvrt(fp, &cfmt, ap);
+  errno = 0;
+        n = vfsfcnvrt(fp, &cfmt, ap);
+        if (n < 0) {
+            break;
+        }
+        ncnv += n;
+    }
+ errno = saved_errno;
+    if (n == (-1) && ncnv == 0) {
+        return n;
     }
 
-
-
- return 0;
-
-
-
-
+    return ncnv;
 }

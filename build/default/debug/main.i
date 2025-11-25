@@ -5059,12 +5059,13 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 #pragma config EBTRB = OFF
 # 8 "main.c" 2
 # 1 "./uart_layer.h" 1
-# 11 "./uart_layer.h"
-extern volatile _Bool snake_updated;
-extern volatile uint8_t snake_len_rx;
-extern volatile uint8_t snake_x_rx[40];
-extern volatile uint8_t snake_y_rx[40];
-extern volatile _Bool apple_eaten;
+
+
+
+
+
+
+
 
 void uart_init(uint16_t gen_reg, unsigned sync,unsigned brgh, unsigned brg16);
 void uart_send(uint8_t c);
@@ -5074,17 +5075,48 @@ void uart_send_string(uint8_t *c);
 # 9 "main.c" 2
 # 1 "./master.h" 1
 # 15 "./master.h"
-extern volatile _Bool spi_rx_data_ready;
-
 void system_init(void);
 void timer0_init(void) ;
-void generate_apple(uint16_t *x, uint16_t *y);
-void send_apple_pos(uint16_t x, uint16_t y);
+void generate_apple(uint8_t *x, uint8_t *y);
+void send_apple_pos(uint8_t x, uint8_t y);
+void handle_game_over();
 # 10 "main.c" 2
+# 1 "./global.h" 1
+# 16 "./global.h"
+extern volatile uint8_t snake_len_rx;
+extern volatile uint8_t snake_x_rx[50];
+extern volatile uint8_t snake_y_rx[50];
 
-volatile uint16_t sec_counter = 0;
-volatile _Bool game_start = 0;
-volatile uint8_t uart_char;
+extern volatile _Bool is_game_over;
+extern volatile _Bool apple_eaten;
+extern volatile _Bool snake_updated;
+
+
+extern volatile _Bool uart_line_ready;
+extern volatile char uart_rx_buf[32];
+extern volatile uint8_t uart_rx_idx;
+# 11 "main.c" 2
+
+# 1 "./putty_test.h" 1
+
+
+
+void parse_command_from_pc(char *line);
+# 13 "main.c" 2
+static volatile uint16_t sec_counter = 0;
+static volatile _Bool game_start = 0;
+
+volatile uint8_t snake_len_rx = 3;
+volatile uint8_t snake_x_rx[50] = {0};
+volatile uint8_t snake_y_rx[50] = {0};
+volatile _Bool apple_eaten = 0;
+volatile _Bool is_game_over = 0;
+volatile _Bool snake_updated = 0;
+
+
+volatile _Bool uart_line_ready = 0;
+volatile char uart_rx_buf[32];
+volatile uint8_t uart_rx_idx = 0;
 
 void __attribute__((picinterrupt(("")))) high_isr(void){
     if(PIR1bits.RCIF){
@@ -5095,9 +5127,24 @@ void __attribute__((picinterrupt(("")))) high_isr(void){
             RCSTAbits.CREN = 0;
             RCSTAbits.CREN = 1;
         }
-        else{
-            uint8_t c = RCREG;
-            uart_rx_from_player(c);
+
+
+
+
+        else {
+            char c = RCREG;
+            if(!uart_line_ready) {
+                if(c == '\r') {
+                    uart_rx_buf[uart_rx_idx] = '\0';
+                    uart_send('\r');
+                    uart_send('\n');
+                    uart_line_ready = 1;
+                }
+                else {
+                    uart_rx_buf[uart_rx_idx++] = c;
+                    uart_send(c);
+                }
+            }
         }
         PIR1bits.RCIF=0;
     }
@@ -5107,11 +5154,12 @@ void __attribute__((picinterrupt(("")))) high_isr(void){
         LATDbits.LATD2 = 0;
 
         sec_counter++;
-        if (sec_counter >= 120) {
+        if (sec_counter >= 0.5 * 60) {
             sec_counter = 0;
 
             LATDbits.LATD2 = 1;
-
+            uart_send_array( "TIME\r\n", 6);
+            is_game_over = 1;
         }
         INTCONbits.TMR0IF = 0;
     }
@@ -5128,29 +5176,55 @@ void __attribute__((picinterrupt(("low_priority")))) low_isr(void){
 }
 
 void main(void){
+
+    uint8_t prev_tail_x = 0, prev_tail_y = 0;
+    uint8_t apple_x = 0, apple_y = 0;
+    _Bool first_frame = 1;
+
     system_init();
-    uint16_t apple_x, apple_y;
 
     uart_init(51,0,1,0);
     timer0_init();
+    _delay((unsigned long)((200)*(8000000/4000.0)));
 
-    _delay((unsigned long)((2000)*(8000000/4000.0)));
-
-    TRISDbits.RD1 = 0;
-    LATDbits.LATD1 = 1;
+    TRISDbits.RD4 = 0;
+    LATDbits.LATD4 = 1;
     while(!game_start);
-    LATDbits.LATD1 = 0;
+    LATDbits.LATD4 = 0;
+    T0CONbits.TMR0ON = 1;
+
+    uint16_t seed = (TMR0H << 8) | TMR0L;
+    srand(seed);
 
     generate_apple(&apple_x, &apple_y);
     send_apple_pos(apple_x, apple_y);
 
     while(1){
+
+        if(uart_line_ready) {
+            parse_command_from_pc(uart_rx_buf);
+            uart_line_ready = 0;
+            for(int i = 0; i < 32 ; i++)
+               uart_rx_buf[i] = '\0';
+            uart_rx_idx = 0;
+        }
         if(snake_updated) {
-            for (uint8_t i = 0; i < snake_len_rx; i++) {
-                uint16_t px = snake_x_rx[i] * 16;
-                uint16_t py = snake_y_rx[i] * 16;
+            if (first_frame) {
+
+                for (uint8_t i = 0; i < snake_len_rx; i++) {
+
+                }
+
+                prev_tail_x = snake_x_rx[snake_len_rx - 1];
+                prev_tail_y = snake_y_rx[snake_len_rx - 1];
+                first_frame = 0;
+            }
+            else {
 
 
+
+                prev_tail_x = snake_x_rx[snake_len_rx - 1];
+                prev_tail_y = snake_y_rx[snake_len_rx - 1];
             }
 
             snake_updated = 0;
@@ -5166,5 +5240,15 @@ void main(void){
             apple_eaten = 0;
         }
 
+        if(is_game_over) {
+            uart_send_array("MAIN\r\n", 6);
+            handle_game_over();
+            break;
+        }
+    }
+
+    while(1) {
+        TRISDbits.RD7 = 0;
+        LATDbits.LATD7 = 1;
     }
 }

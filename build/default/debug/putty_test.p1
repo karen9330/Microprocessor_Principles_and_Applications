@@ -1,181 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"1930 C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 1930:     struct {
-[s S72 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S72 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
-"1940
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 1940:     struct {
-[s S73 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S73 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"1929
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 1929: typedef union {
-[u S71 `S72 1 `S73 1 ]
-[n S71 . . . ]
-"1951
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 1951: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF94)));
-[v _TRISCbits `VS71 ~T0 @X0 0 e@3988 ]
-"3610
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3610: extern volatile unsigned char SPBRGH __attribute__((address(0xFB0)));
-[v _SPBRGH `Vuc ~T0 @X0 0 e@4016 ]
-"3598
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3598: extern volatile unsigned char SPBRG __attribute__((address(0xFAF)));
-[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
-"3119
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3119:     struct {
-[s S114 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S114 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
-"3129
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3129:     struct {
-[s S115 :3 `uc 1 :1 `uc 1 ]
-[n S115 . . ADEN ]
-"3133
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3133:     struct {
-[s S116 :5 `uc 1 :1 `uc 1 ]
-[n S116 . . SRENA ]
-"3137
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3137:     struct {
-[s S117 :6 `uc 1 :1 `uc 1 ]
-[n S117 . . RC8_9 ]
-"3141
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3141:     struct {
-[s S118 :6 `uc 1 :1 `uc 1 ]
-[n S118 . . RC9 ]
-"3145
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3145:     struct {
-[s S119 :1 `uc 1 ]
-[n S119 . RCD8 ]
-"3118
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3118: typedef union {
-[u S113 `S114 1 `S115 1 `S116 1 `S117 1 `S118 1 `S119 1 ]
-[n S113 . . . . . . . ]
-"3149
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3149: extern volatile RCSTAbits_t RCSTAbits __attribute__((address(0xFAB)));
-[v _RCSTAbits `VS113 ~T0 @X0 0 e@4011 ]
-"4230
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 4230:     struct {
-[s S164 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S164 . ABDEN WUE . BRG16 TXCKP RXDTP RCIDL ABDOVF ]
-"4240
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 4240:     struct {
-[s S165 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S165 . . SCKP . RCMT ]
-"4246
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 4246:     struct {
-[s S166 :5 `uc 1 :1 `uc 1 ]
-[n S166 . . RXCKP ]
-"4250
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 4250:     struct {
-[s S167 :1 `uc 1 :1 `uc 1 ]
-[n S167 . . W4E ]
-"4229
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 4229: typedef union {
-[u S163 `S164 1 `S165 1 `S166 1 `S167 1 ]
-[n S163 . . . . . ]
-"4255
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 4255: extern volatile BAUDCONbits_t BAUDCONbits __attribute__((address(0xFB8)));
-[v _BAUDCONbits `VS163 ~T0 @X0 0 e@4024 ]
-"3329
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3329:     struct {
-[s S128 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S128 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
-"3339
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3339:     struct {
-[s S129 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S129 . TX9D1 TRMT1 BRGH1 SENDB1 SYNC1 TXEN1 TX91 CSRC1 ]
-"3349
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3349:     struct {
-[s S130 :6 `uc 1 :1 `uc 1 ]
-[n S130 . . TX8_9 ]
-"3353
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3353:     struct {
-[s S131 :1 `uc 1 ]
-[n S131 . TXD8 ]
-"3328
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3328: typedef union {
-[u S127 `S128 1 `S129 1 `S130 1 `S131 1 ]
-[n S127 . . . . . ]
-"3357
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3357: extern volatile TXSTAbits_t TXSTAbits __attribute__((address(0xFAC)));
-[v _TXSTAbits `VS127 ~T0 @X0 0 e@4012 ]
-"2752
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 2752:     struct {
-[s S99 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S99 . TMR1IP TMR2IP CCP1IP SSPIP TXIP RCIP ADIP PSPIP ]
-"2762
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 2762:     struct {
-[s S100 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S100 . . TX1IP RC1IP ]
-"2751
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 2751: typedef union {
-[u S98 `S99 1 `S100 1 ]
-[n S98 . . . ]
-"2768
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 2768: extern volatile IPR1bits_t IPR1bits __attribute__((address(0xF9F)));
-[v _IPR1bits `VS98 ~T0 @X0 0 e@3999 ]
-"2598
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 2598:     struct {
-[s S93 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S93 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE PSPIE ]
-"2608
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 2608:     struct {
-[s S94 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S94 . . TX1IE RC1IE ]
-"2597
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 2597: typedef union {
-[u S92 `S93 1 `S94 1 ]
-[n S92 . . . ]
-"2614
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 2614: extern volatile PIE1bits_t PIE1bits __attribute__((address(0xF9D)));
-[v _PIE1bits `VS92 ~T0 @X0 0 e@3997 ]
-"2675
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 2675:     struct {
-[s S96 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S96 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF PSPIF ]
-"2685
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 2685:     struct {
-[s S97 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S97 . . TX1IF RC1IF ]
-"2674
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 2674: typedef union {
-[u S95 `S96 1 `S97 1 ]
-[n S95 . . . ]
-"2691
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 2691: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
-[v _PIR1bits `VS95 ~T0 @X0 0 e@3998 ]
-"8 C:\Program Files\Microchip\xc8\v3.00\pic\include/builtins.h
-[v ___nop `(v ~T0 @X0 0 ef ]
-[p i ___nop ]
-"3574 C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 3574: extern volatile unsigned char TXREG __attribute__((address(0xFAD)));
-[v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
-"43 uart_layer.c
-[; ;uart_layer.c: 43:     static volatile uart_rx_state_t rx_state = RX_WAIT_MSG_TYPE;
-[c E3209 0 1 2 .. ]
-[n E3209 . RX_WAIT_MSG_TYPE RX_WAIT_DATA RX_WAIT_APPLE  ]
-"20 ./global.h
-[; ;./global.h: 20: extern volatile _Bool is_game_over;
-[v _is_game_over `Va ~T0 @X0 0 e ]
-"12 ./uart_layer.h
-[; ;./uart_layer.h: 12: void uart_send_array(uint8_t *c,uint16_t len);
-[v _uart_send_array `(v ~T0 @X0 0 ef2`*uc`us ]
-"29 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h
-[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h: 29: void *memset (void *, int, size_t);
-[v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
-"17 ./global.h
-[; ;./global.h: 17: extern volatile uint8_t snake_x_rx[50];
-[v _snake_x_rx `Vuc ~T0 @X0 -> 0 `x e ]
-"18
-[; ;./global.h: 18: extern volatile uint8_t snake_y_rx[50];
-[v _snake_y_rx `Vuc ~T0 @X0 -> 0 `x e ]
-"16
-[; ;./global.h: 16: extern volatile uint8_t snake_len_rx;
-[v _snake_len_rx `Vuc ~T0 @X0 0 e ]
-"21
-[; ;./global.h: 21: extern volatile _Bool apple_eaten;
-[v _apple_eaten `Va ~T0 @X0 0 e ]
-"22
-[; ;./global.h: 22: extern volatile _Bool snake_updated;
-[v _snake_updated `Va ~T0 @X0 0 e ]
+"11 ./uart_layer.h
+[; ;./uart_layer.h: 11: void uart_rx_from_player(uint8_t c);
+[v _uart_rx_from_player `(v ~T0 @X0 0 ef1`uc ]
+"54 C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h
+[; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\c99/string.h: 54: size_t strlen (const char *);
+[v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
 "52 C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h
 [; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 52: __asm("PORTA equ 0F80h");
 [; <" PORTA equ 0F80h ;# ">
@@ -590,269 +419,121 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6999
 [; ;C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h: 6999: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"14 uart_layer.c
-[; ;uart_layer.c: 14: void uart_init(uint16_t gen_reg, unsigned sync,unsigned brgh, unsigned brg16){
-[v _uart_init `(v ~T0 @X0 1 ef4`us`ui`ui`ui ]
+"7 putty_test.c
+[; ;putty_test.c: 7: static void feed_snake_packet(uint8_t *pos, uint8_t flag)
+[v _feed_snake_packet `(v ~T0 @X0 1 sf2`*uc`uc ]
+"8
+[; ;putty_test.c: 8: {
 {
-[e :U _uart_init ]
-[v _gen_reg `us ~T0 @X0 1 r1 ]
-[v _sync `ui ~T0 @X0 1 r2 ]
-[v _brgh `ui ~T0 @X0 1 r3 ]
-[v _brg16 `ui ~T0 @X0 1 r4 ]
+[e :U _feed_snake_packet ]
+"7
+[; ;putty_test.c: 7: static void feed_snake_packet(uint8_t *pos, uint8_t flag)
+[v _pos `*uc ~T0 @X0 1 r1 ]
+[v _flag `uc ~T0 @X0 1 r2 ]
+"8
+[; ;putty_test.c: 8: {
 [f ]
+"10
+[; ;putty_test.c: 10:     uart_rx_from_player(1);
+[e ( _uart_rx_from_player (1 -> -> 1 `i `uc ]
+"11
+[; ;putty_test.c: 11:     for(int i=0; i<6; i++) {
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 6 `i 307  ]
+[e $U 308  ]
+[e :U 307 ]
+{
+"12
+[; ;putty_test.c: 12:         uart_rx_from_player(pos[i]);
+[e ( _uart_rx_from_player (1 *U + _pos * -> _i `x -> -> # *U _pos `i `x ]
+"13
+[; ;putty_test.c: 13:     }
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 6 `i 307  ]
+[e :U 308 ]
+}
+"14
+[; ;putty_test.c: 14:     uart_rx_from_player(flag);
+[e ( _uart_rx_from_player (1 _flag ]
 "15
-[; ;uart_layer.c: 15:     TRISCbits.RC7 = 1;
-[e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
-"16
-[; ;uart_layer.c: 16:     TRISCbits.RC6 = 1;
-[e = . . _TRISCbits 1 6 -> -> 1 `i `uc ]
-"19
-[; ;uart_layer.c: 19:     SPBRGH = (gen_reg & 0xFF00) >> 8;
-[e = _SPBRGH -> >> & -> _gen_reg `ui -> 65280 `ui -> 8 `i `uc ]
-"20
-[; ;uart_layer.c: 20:     SPBRG = gen_reg & 0x00FF;
-[e = _SPBRG -> & -> _gen_reg `ui -> -> 255 `i `ui `uc ]
-"22
-[; ;uart_layer.c: 22:     RCSTAbits.CREN = 1;
-[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"23
-[; ;uart_layer.c: 23:     RCSTAbits.SPEN = 1;
-[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
-"24
-[; ;uart_layer.c: 24:     BAUDCONbits.BRG16 = brg16;
-[e = . . _BAUDCONbits 0 3 -> _brg16 `uc ]
-"26
-[; ;uart_layer.c: 26:     TXSTAbits.SYNC = sync;
-[e = . . _TXSTAbits 0 4 -> _sync `uc ]
-"27
-[; ;uart_layer.c: 27:     TXSTAbits.BRGH = brgh;
-[e = . . _TXSTAbits 0 2 -> _brgh `uc ]
-"28
-[; ;uart_layer.c: 28:     TXSTAbits.TXEN = 1;
-[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-"30
-[; ;uart_layer.c: 30:     IPR1bits.RCIP = 1;
-[e = . . _IPR1bits 0 5 -> -> 1 `i `uc ]
-"31
-[; ;uart_layer.c: 31:     PIE1bits.RCIE = 1;
-[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-"32
-[; ;uart_layer.c: 32:     PIR1bits.RCIF = 0;
-[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
-"33
-[; ;uart_layer.c: 33: }
+[; ;putty_test.c: 15: }
 [e :UE 306 ]
 }
-"35
-[; ;uart_layer.c: 35: void uart_send(uint8_t c){
-[v _uart_send `(v ~T0 @X0 1 ef1`uc ]
+"17
+[; ;putty_test.c: 17: void parse_command_from_pc(char *line)
+[v _parse_command_from_pc `(v ~T0 @X0 1 ef1`*uc ]
+"18
+[; ;putty_test.c: 18: {
 {
-[e :U _uart_send ]
-[v _c `uc ~T0 @X0 1 r1 ]
+[e :U _parse_command_from_pc ]
+"17
+[; ;putty_test.c: 17: void parse_command_from_pc(char *line)
+[v _line `*uc ~T0 @X0 1 r1 ]
+"18
+[; ;putty_test.c: 18: {
 [f ]
-"36
-[; ;uart_layer.c: 36:     while(TXSTAbits.TRMT==0){
-[e $U 308  ]
-[e :U 309 ]
+"23
+[; ;putty_test.c: 23:     if (line[0] == 'G') {
+[e $ ! == -> *U + _line * -> -> 0 `i `x -> -> # *U _line `i `x `ui -> 71 `ui 311  ]
 {
-"37
-[; ;uart_layer.c: 37:         __nop();
-[e ( ___nop ..  ]
-"38
-[; ;uart_layer.c: 38:     }
+"25
+[; ;putty_test.c: 25:         uart_rx_from_player(0);
+[e ( _uart_rx_from_player (1 -> -> 0 `i `uc ]
+"26
+[; ;putty_test.c: 26:     }
 }
-[e :U 308 ]
-"36
-[; ;uart_layer.c: 36:     while(TXSTAbits.TRMT==0){
-[e $ == -> . . _TXSTAbits 0 1 `i -> 0 `i 309  ]
-[e :U 310 ]
-"39
-[; ;uart_layer.c: 39:     TXREG = c;
-[e = _TXREG _c ]
-"40
-[; ;uart_layer.c: 40: }
-[e :UE 307 ]
-}
-"42
-[; ;uart_layer.c: 42: void uart_rx_from_player(uint8_t c) {
-[v _uart_rx_from_player `(v ~T0 @X0 1 ef1`uc ]
+[e $U 312  ]
+"27
+[; ;putty_test.c: 27:     else if (line[0] == 'S') {
+[e :U 311 ]
+[e $ ! == -> *U + _line * -> -> 0 `i `x -> -> # *U _line `i `x `ui -> 83 `ui 313  ]
 {
-[e :U _uart_rx_from_player ]
-[v _c `uc ~T0 @X0 1 r1 ]
-[f ]
-"43
-[; ;uart_layer.c: 43:     static volatile uart_rx_state_t rx_state = RX_WAIT_MSG_TYPE;
-[v F3223 `VE3209 ~T0 @X0 1 s rx_state ]
-[i F3223
-. `E3209 0
-]
-"44
-[; ;uart_layer.c: 44:     static volatile uint8_t rx_index = 0;
-[v F3224 `Vuc ~T0 @X0 1 s rx_index ]
-[i F3224
--> -> 0 `i `uc
-]
-"46
-[; ;uart_layer.c: 46:     switch(rx_state) {
-[e $U 313  ]
+"28
+[; ;putty_test.c: 28:         uint8_t pos[6], idx = 0, flag;
+[v _pos `uc ~T0 @X0 -> 6 `i a ]
+[v _idx `uc ~T0 @X0 1 a ]
+[e = _idx -> -> 0 `i `uc ]
+[v _flag `uc ~T0 @X0 1 a ]
+"29
+[; ;putty_test.c: 29:         for(int i=1; line[i] != '\0'; i++) {
 {
-"47
-[; ;uart_layer.c: 47:         case RX_WAIT_MSG_TYPE:
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 1 `i ]
+[e $U 317  ]
 [e :U 314 ]
-"48
-[; ;uart_layer.c: 48:             if(c == 0) {
-[e $ ! == -> _c `i -> 0 `i 315  ]
 {
-"49
-[; ;uart_layer.c: 49:                 is_game_over = 1;
-[e = _is_game_over -> -> 1 `i `a ]
-"50
-[; ;uart_layer.c: 50:                 rx_state = RX_WAIT_MSG_TYPE;
-[e = F3223 . `E3209 0 ]
-"51
-[; ;uart_layer.c: 51:                 uart_send_array("UART\r\n", 6);
-[e ( _uart_send_array (2 , :s 1C -> -> 6 `i `us ]
-"52
-[; ;uart_layer.c: 52:             }
-}
+"30
+[; ;putty_test.c: 30:             if(line[i] == ',') continue;
+[e $ ! == -> *U + _line * -> _i `x -> -> # *U _line `i `x `ui -> 44 `ui 318  ]
 [e $U 316  ]
-"53
-[; ;uart_layer.c: 53:             else {
-[e :U 315 ]
-{
-"54
-[; ;uart_layer.c: 54:                 rx_index = 0;
-[e = F3224 -> -> 0 `i `uc ]
-"55
-[; ;uart_layer.c: 55:                 memset(snake_x_rx, 0, sizeof(snake_x_rx));
-[e ( _memset (3 , , -> &U _snake_x_rx `*v -> 0 `i -> * -> 50 `i # `Vuc `ui ]
-"56
-[; ;uart_layer.c: 56:                 memset(snake_y_rx, 0, sizeof(snake_y_rx));
-[e ( _memset (3 , , -> &U _snake_y_rx `*v -> 0 `i -> * -> 50 `i # `Vuc `ui ]
-"57
-[; ;uart_layer.c: 57:                 rx_state = RX_WAIT_DATA;
-[e = F3223 . `E3209 1 ]
-"58
-[; ;uart_layer.c: 58:                 uart_send_array("STATE 1\r\n", 9);
-[e ( _uart_send_array (2 , :s 2C -> -> 9 `i `us ]
-"59
-[; ;uart_layer.c: 59:             }
+[e :U 318 ]
+"31
+[; ;putty_test.c: 31:             pos[idx++] = line[i] -48;
+[e = *U + &U _pos * -> ++ _idx -> -> 1 `i `uc `ux -> -> # *U &U _pos `ui `ux -> - -> *U + _line * -> _i `x -> -> # *U _line `i `x `i -> 48 `i `uc ]
+"32
+[; ;putty_test.c: 32:         }
 }
 [e :U 316 ]
-"60
-[; ;uart_layer.c: 60:             break;
-[e $U 312  ]
-"66
-[; ;uart_layer.c: 66:         case RX_WAIT_DATA:
+[e ++ _i -> 1 `i ]
 [e :U 317 ]
-"67
-[; ;uart_layer.c: 67:             if((rx_index & 1) == 0) {
-[e $ ! == & -> F3224 `i -> 1 `i -> 0 `i 318  ]
-{
-"68
-[; ;uart_layer.c: 68:                 snake_x_rx[rx_index/2] = c;
-[e = *U + &U _snake_x_rx * -> -> / -> F3224 `i -> 2 `i `ui `ux -> -> # *U &U _snake_x_rx `ui `ux _c ]
-"69
-[; ;uart_layer.c: 69:             }
+[e $ != -> *U + _line * -> _i `x -> -> # *U _line `i `x `ui -> 0 `ui 314  ]
+[e :U 315 ]
 }
-[e $U 319  ]
-"70
-[; ;uart_layer.c: 70:             else {
-[e :U 318 ]
-{
-"71
-[; ;uart_layer.c: 71:                 snake_y_rx[rx_index/2] = c;
-[e = *U + &U _snake_y_rx * -> -> / -> F3224 `i -> 2 `i `ui `ux -> -> # *U &U _snake_y_rx `ui `ux _c ]
-"72
-[; ;uart_layer.c: 72:             }
+"33
+[; ;putty_test.c: 33:         flag = line[strlen(line) - 1] - 48;
+[e = _flag -> - -> *U + _line * -> - ( _strlen (1 -> _line `*Cuc -> -> 1 `i `ui `ux -> -> # *U _line `ui `ux `i -> 48 `i `uc ]
+"34
+[; ;putty_test.c: 34:         feed_snake_packet(pos, flag);
+[e ( _feed_snake_packet (2 , &U _pos _flag ]
+"35
+[; ;putty_test.c: 35:     }
 }
-[e :U 319 ]
-"73
-[; ;uart_layer.c: 73:             uart_send_array("STATE 2\r\n", 9);
-[e ( _uart_send_array (2 , :s 3C -> -> 9 `i `us ]
-"74
-[; ;uart_layer.c: 74:             rx_index++;
-[e ++ F3224 -> -> 1 `i `Vuc ]
-"75
-[; ;uart_layer.c: 75:             if(rx_index >= snake_len_rx * 2) {
-[e $ ! >= -> F3224 `i * -> _snake_len_rx `i -> 2 `i 320  ]
-{
-"76
-[; ;uart_layer.c: 76:                 rx_state = RX_WAIT_APPLE;
-[e = F3223 . `E3209 2 ]
-"77
-[; ;uart_layer.c: 77:             }
-}
-[e :U 320 ]
-"78
-[; ;uart_layer.c: 78:             break;
-[e $U 312  ]
-"79
-[; ;uart_layer.c: 79:         case RX_WAIT_APPLE:
-[e :U 321 ]
-"80
-[; ;uart_layer.c: 80:             if(c == 1) apple_eaten = 1;
-[e $ ! == -> _c `i -> 1 `i 322  ]
-[e = _apple_eaten -> -> 1 `i `a ]
-[e :U 322 ]
-"81
-[; ;uart_layer.c: 81:             snake_updated = 1;
-[e = _snake_updated -> -> 1 `i `a ]
-"82
-[; ;uart_layer.c: 82:             uart_send_array("STATE 3\r\n", 9);
-[e ( _uart_send_array (2 , :s 4C -> -> 9 `i `us ]
-"83
-[; ;uart_layer.c: 83:             rx_state = RX_WAIT_MSG_TYPE;
-[e = F3223 . `E3209 0 ]
-"84
-[; ;uart_layer.c: 84:             break;
-[e $U 312  ]
-"85
-[; ;uart_layer.c: 85:     }
-}
-[e $U 312  ]
 [e :U 313 ]
-[e [\ -> F3223 `ui , $ -> . `E3209 0 `ui 314
- , $ -> . `E3209 1 `ui 317
- , $ -> . `E3209 2 `ui 321
- 312 ]
 [e :U 312 ]
-"86
-[; ;uart_layer.c: 86: }
-[e :UE 311 ]
+"36
+[; ;putty_test.c: 36: }
+[e :UE 310 ]
 }
-"88
-[; ;uart_layer.c: 88: void uart_send_array(uint8_t *c, uint16_t len){
-[v _uart_send_array `(v ~T0 @X0 1 ef2`*uc`us ]
-{
-[e :U _uart_send_array ]
-[v _c `*uc ~T0 @X0 1 r1 ]
-[v _len `us ~T0 @X0 1 r2 ]
-[f ]
-"89
-[; ;uart_layer.c: 89:     for(uint8_t i = 0; i < len;i++){
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $U 327  ]
-[e :U 324 ]
-{
-"90
-[; ;uart_layer.c: 90:         uart_send(c[i]);
-[e ( _uart_send (1 *U + _c * -> _i `ux -> -> # *U _c `ui `ux ]
-"91
-[; ;uart_layer.c: 91:     }
-}
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 327 ]
-[e $ < -> _i `ui -> _len `ui 324  ]
-[e :U 325 ]
-}
-"92
-[; ;uart_layer.c: 92: }
-[e :UE 323 ]
-}
-[a 1C 85 65 82 84 13 10 0 ]
-[a 4C 83 84 65 84 69 32 51 13 10 0 ]
-[a 3C 83 84 65 84 69 32 50 13 10 0 ]
-[a 2C 83 84 65 84 69 32 49 13 10 0 ]

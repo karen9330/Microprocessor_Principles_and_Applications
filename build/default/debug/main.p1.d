@@ -2,4 +2,6 @@ build/default/debug/main.p1:  \
 main.c  \
 conbits.h  \
 uart_layer.h  \
-master.h 
+master.h  \
+global.h  \
+putty_test.h 

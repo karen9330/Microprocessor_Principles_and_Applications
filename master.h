@@ -12,11 +12,10 @@
 #include <stdbool.h>
 #include <pic18f4520.h>
 
-extern volatile bool spi_rx_data_ready;
-
 void system_init(void);
 void timer0_init(void) ;
-void generate_apple(uint16_t *x, uint16_t *y);
-void send_apple_pos(uint16_t x, uint16_t y);
+void generate_apple(uint8_t *x, uint8_t *y);
+void send_apple_pos(uint8_t x, uint8_t y);
+void handle_game_over();
 
 #endif	
