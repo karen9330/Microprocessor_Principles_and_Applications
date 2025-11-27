@@ -433,11 +433,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8
 [; ;putty_test.c: 8: {
 [f ]
-"10
-[; ;putty_test.c: 10:     uart_rx_from_player(1);
+"9
+[; ;putty_test.c: 9:     uart_rx_from_player(1);
 [e ( _uart_rx_from_player (1 -> -> 1 `i `uc ]
-"11
-[; ;putty_test.c: 11:     for(int i=0; i<6; i++) {
+"10
+[; ;putty_test.c: 10:     for(int i=0; i<6; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -445,76 +445,76 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $U 308  ]
 [e :U 307 ]
 {
-"12
-[; ;putty_test.c: 12:         uart_rx_from_player(pos[i]);
+"11
+[; ;putty_test.c: 11:         uart_rx_from_player(pos[i]);
 [e ( _uart_rx_from_player (1 *U + _pos * -> _i `x -> -> # *U _pos `i `x ]
-"13
-[; ;putty_test.c: 13:     }
+"12
+[; ;putty_test.c: 12:     }
 }
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 6 `i 307  ]
 [e :U 308 ]
 }
-"14
-[; ;putty_test.c: 14:     uart_rx_from_player(flag);
+"13
+[; ;putty_test.c: 13:     uart_rx_from_player(flag);
 [e ( _uart_rx_from_player (1 _flag ]
-"15
-[; ;putty_test.c: 15: }
+"14
+[; ;putty_test.c: 14: }
 [e :UE 306 ]
 }
-"17
-[; ;putty_test.c: 17: void parse_command_from_pc(char *line)
+"16
+[; ;putty_test.c: 16: void parse_command_from_pc(char *line)
 [v _parse_command_from_pc `(v ~T0 @X0 1 ef1`*uc ]
-"18
-[; ;putty_test.c: 18: {
+"17
+[; ;putty_test.c: 17: {
 {
 [e :U _parse_command_from_pc ]
-"17
-[; ;putty_test.c: 17: void parse_command_from_pc(char *line)
+"16
+[; ;putty_test.c: 16: void parse_command_from_pc(char *line)
 [v _line `*uc ~T0 @X0 1 r1 ]
-"18
-[; ;putty_test.c: 18: {
+"17
+[; ;putty_test.c: 17: {
 [f ]
-"23
-[; ;putty_test.c: 23:     if (line[0] == 'G') {
+"21
+[; ;putty_test.c: 21:     if (line[0] == 'G') {
 [e $ ! == -> *U + _line * -> -> 0 `i `x -> -> # *U _line `i `x `ui -> 71 `ui 311  ]
 {
-"25
-[; ;putty_test.c: 25:         uart_rx_from_player(0);
+"23
+[; ;putty_test.c: 23:         uart_rx_from_player(0);
 [e ( _uart_rx_from_player (1 -> -> 0 `i `uc ]
-"26
-[; ;putty_test.c: 26:     }
+"24
+[; ;putty_test.c: 24:     }
 }
 [e $U 312  ]
-"27
-[; ;putty_test.c: 27:     else if (line[0] == 'S') {
+"25
+[; ;putty_test.c: 25:     else if (line[0] == 'S') {
 [e :U 311 ]
 [e $ ! == -> *U + _line * -> -> 0 `i `x -> -> # *U _line `i `x `ui -> 83 `ui 313  ]
 {
-"28
-[; ;putty_test.c: 28:         uint8_t pos[6], idx = 0, flag;
+"26
+[; ;putty_test.c: 26:         uint8_t pos[6], idx = 0, flag;
 [v _pos `uc ~T0 @X0 -> 6 `i a ]
 [v _idx `uc ~T0 @X0 1 a ]
 [e = _idx -> -> 0 `i `uc ]
 [v _flag `uc ~T0 @X0 1 a ]
-"29
-[; ;putty_test.c: 29:         for(int i=1; line[i] != '\0'; i++) {
+"27
+[; ;putty_test.c: 27:         for(int i=1; line[i] != '\0'; i++) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 1 `i ]
 [e $U 317  ]
 [e :U 314 ]
 {
-"30
-[; ;putty_test.c: 30:             if(line[i] == ',') continue;
+"28
+[; ;putty_test.c: 28:             if(line[i] == ',') continue;
 [e $ ! == -> *U + _line * -> _i `x -> -> # *U _line `i `x `ui -> 44 `ui 318  ]
 [e $U 316  ]
 [e :U 318 ]
-"31
-[; ;putty_test.c: 31:             pos[idx++] = line[i] -48;
+"29
+[; ;putty_test.c: 29:             pos[idx++] = line[i] -48;
 [e = *U + &U _pos * -> ++ _idx -> -> 1 `i `uc `ux -> -> # *U &U _pos `ui `ux -> - -> *U + _line * -> _i `x -> -> # *U _line `i `x `i -> 48 `i `uc ]
-"32
-[; ;putty_test.c: 32:         }
+"30
+[; ;putty_test.c: 30:         }
 }
 [e :U 316 ]
 [e ++ _i -> 1 `i ]
@@ -522,18 +522,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e $ != -> *U + _line * -> _i `x -> -> # *U _line `i `x `ui -> 0 `ui 314  ]
 [e :U 315 ]
 }
-"33
-[; ;putty_test.c: 33:         flag = line[strlen(line) - 1] - 48;
+"31
+[; ;putty_test.c: 31:         flag = line[strlen(line) - 1] - 48;
 [e = _flag -> - -> *U + _line * -> - ( _strlen (1 -> _line `*Cuc -> -> 1 `i `ui `ux -> -> # *U _line `ui `ux `i -> 48 `i `uc ]
-"34
-[; ;putty_test.c: 34:         feed_snake_packet(pos, flag);
+"32
+[; ;putty_test.c: 32:         feed_snake_packet(pos, flag);
 [e ( _feed_snake_packet (2 , &U _pos _flag ]
-"35
-[; ;putty_test.c: 35:     }
+"33
+[; ;putty_test.c: 33:     }
 }
 [e :U 313 ]
 [e :U 312 ]
-"36
-[; ;putty_test.c: 36: }
+"34
+[; ;putty_test.c: 34: }
 [e :UE 310 ]
 }

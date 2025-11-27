@@ -6,7 +6,6 @@
 
 static void feed_snake_packet(uint8_t *pos, uint8_t flag)
 {
-    // [msg_type!=0] [new_x] [new_y] [old_x] [old_y] [apple_flag]
     uart_rx_from_player(SNAKE);
     for(int i=0; i<6; i++) {
         uart_rx_from_player(pos[i]);
@@ -16,9 +15,8 @@ static void feed_snake_packet(uint8_t *pos, uint8_t flag)
 
 void parse_command_from_pc(char *line)
 {   
-    //uart_send_array((uint8_t*)"LINE: ", 6);
-    //uart_send_array((uint8_t*)line, strlen(line));
-    //uart_send('\r'); uart_send('\n'); 
+    // receive from putty as format: S,0,0,0,1,0,2,0 
+    // [msg_type][posx(0~5)][posy(0~5)][flag]
     
     if (line[0] == 'G') {
         // Game over
@@ -28,7 +26,7 @@ void parse_command_from_pc(char *line)
         uint8_t pos[6], idx = 0, flag;
         for(int i=1; line[i] != '\0'; i++) {
             if(line[i] == ',') continue;
-            pos[idx++] = line[i] -48;
+            pos[idx++] = line[i] - 48;
         }
         flag = line[strlen(line) - 1] - 48;
         feed_snake_packet(pos, flag);

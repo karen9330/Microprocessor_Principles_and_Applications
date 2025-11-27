@@ -5053,7 +5053,7 @@ void uart_init(uint16_t gen_reg, unsigned sync,unsigned brgh, unsigned brg16){
     TXSTAbits.BRGH = brgh;
     TXSTAbits.TXEN = 1;
 
-    IPR1bits.RCIP = 1;
+    IPR1bits.RCIP = 0;
     PIE1bits.RCIE = 1;
     PIR1bits.RCIF = 0;
 }

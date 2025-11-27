@@ -5074,11 +5074,17 @@ void uart_send_array(uint8_t *c,uint16_t len);
 void uart_send_string(uint8_t *c);
 # 9 "main.c" 2
 # 1 "./master.h" 1
-# 15 "./master.h"
+
+
+
+
+
+
+
+
 void system_init(void);
 void timer0_init(void) ;
 void generate_apple(uint8_t *x, uint8_t *y);
-void send_apple_pos(uint8_t x, uint8_t y);
 void handle_game_over();
 # 10 "main.c" 2
 # 1 "./global.h" 1
@@ -5119,7 +5125,29 @@ volatile char uart_rx_buf[32];
 volatile uint8_t uart_rx_idx = 0;
 
 void __attribute__((picinterrupt(("")))) high_isr(void){
-    if(PIR1bits.RCIF){
+    if(INTCONbits.TMR0IF) {
+        TMR0H = 0xE1;
+        TMR0L = 0x7C;
+        LATDbits.LATD2 = 0;
+
+        sec_counter++;
+        if (sec_counter >= 2 * 60) {
+            sec_counter = 0;
+
+            LATDbits.LATD2 = 1;
+            uart_send_array( "TIME\r\n", 6);
+            is_game_over = 1;
+        }
+        INTCONbits.TMR0IF = 0;
+    }
+    if(INTCONbits.INT0IF) {
+        game_start = 1;
+        INTCONbits.INT0IF = 0;
+    }
+}
+
+void __attribute__((picinterrupt(("low_priority")))) low_isr(void){
+     if(PIR1bits.RCIF){
         if(RCSTAbits.FERR){
             uint8_t er = RCREG;
         }
@@ -5127,6 +5155,7 @@ void __attribute__((picinterrupt(("")))) high_isr(void){
             RCSTAbits.CREN = 0;
             RCSTAbits.CREN = 1;
         }
+
 
 
 
@@ -5148,37 +5177,11 @@ void __attribute__((picinterrupt(("")))) high_isr(void){
         }
         PIR1bits.RCIF=0;
     }
-    if(INTCONbits.TMR0IF) {
-        TMR0H = 0xE1;
-        TMR0L = 0x7C;
-        LATDbits.LATD2 = 0;
-
-        sec_counter++;
-        if (sec_counter >= 0.5 * 60) {
-            sec_counter = 0;
-
-            LATDbits.LATD2 = 1;
-            uart_send_array( "TIME\r\n", 6);
-            is_game_over = 1;
-        }
-        INTCONbits.TMR0IF = 0;
-    }
-    if(INTCONbits.INT0IF) {
-        game_start = 1;
-        INTCONbits.INT0IF = 0;
-    }
-}
-
-void __attribute__((picinterrupt(("low_priority")))) low_isr(void){
-    if(0){
-
-    }
 }
 
 void main(void){
-
-    uint8_t prev_tail_x = 0, prev_tail_y = 0;
     uint8_t apple_x = 0, apple_y = 0;
+    uint8_t prev_tail_x = 0, prev_tail_y = 0;
     _Bool first_frame = 1;
 
     system_init();
@@ -5191,13 +5194,13 @@ void main(void){
     LATDbits.LATD4 = 1;
     while(!game_start);
     LATDbits.LATD4 = 0;
+
     T0CONbits.TMR0ON = 1;
 
     uint16_t seed = (TMR0H << 8) | TMR0L;
     srand(seed);
 
     generate_apple(&apple_x, &apple_y);
-    send_apple_pos(apple_x, apple_y);
 
     while(1){
 
@@ -5234,7 +5237,6 @@ void main(void){
 
 
             generate_apple(&apple_x, &apple_y);
-            send_apple_pos(apple_x, apple_y);
 
 
             apple_eaten = 0;
@@ -5248,6 +5250,7 @@ void main(void){
     }
 
     while(1) {
+
         TRISDbits.RD7 = 0;
         LATDbits.LATD7 = 1;
     }

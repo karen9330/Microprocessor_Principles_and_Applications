@@ -631,8 +631,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;uart_layer.c: 28:     TXSTAbits.TXEN = 1;
 [e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
 "30
-[; ;uart_layer.c: 30:     IPR1bits.RCIP = 1;
-[e = . . _IPR1bits 0 5 -> -> 1 `i `uc ]
+[; ;uart_layer.c: 30:     IPR1bits.RCIP = 0;
+[e = . . _IPR1bits 0 5 -> -> 0 `i `uc ]
 "31
 [; ;uart_layer.c: 31:     PIE1bits.RCIE = 1;
 [e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]

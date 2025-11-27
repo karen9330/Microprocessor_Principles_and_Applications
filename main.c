@@ -10,7 +10,7 @@
 #include "global.h"
 
 #include "putty_test.h"
-static volatile uint16_t sec_counter = 0;
+static volatile uint16_t sec_counter = 0;   // timer0 counter
 static volatile bool game_start = false;
 
 volatile uint8_t snake_len_rx = 3;
@@ -21,12 +21,35 @@ volatile bool is_game_over = false;
 volatile bool snake_updated = false;
     
 // test for putty
-volatile bool  uart_line_ready = false;
+/*volatile bool  uart_line_ready = false;
 volatile char  uart_rx_buf[32];
 volatile uint8_t uart_rx_idx = 0;
+*/
 
 void __interrupt() high_isr(void){
-    if(PIR1bits.RCIF){  // uart interrupt
+    if(INTCONbits.TMR0IF) { // timer0 interrupt
+        TMR0H = 0xE1;
+        TMR0L = 0x7C;
+        LATDbits.LATD2 = 0;
+        
+        sec_counter++;
+        if (sec_counter >= 2 * 60) { // when count to 120s, the game is stopped
+            sec_counter = 0;
+            // using RD2 to notify player?
+            LATDbits.LATD2 = 1;
+            //uart_send_array( "TIME\r\n", 6);
+            is_game_over = true;
+        }
+        INTCONbits.TMR0IF = 0;
+    }
+    if(INTCONbits.INT0IF) { // button interrupt
+        game_start = true;
+        INTCONbits.INT0IF = 0;
+    }
+}
+
+void __interrupt(low_priority) low_isr(void){
+     if(PIR1bits.RCIF){  // uart interrupt
         if(RCSTAbits.FERR){
             uint8_t er = RCREG;
         }
@@ -38,6 +61,7 @@ void __interrupt() high_isr(void){
             uint8_t c = RCREG;
             uart_rx_from_player(c);
         }*/
+        // test with putty
         else {
             char c = RCREG;
             if(!uart_line_ready) {
@@ -55,40 +79,14 @@ void __interrupt() high_isr(void){
         }
         PIR1bits.RCIF=0;
     }
-    if(INTCONbits.TMR0IF) { // timer0 interrupt
-        TMR0H = 0xE1;
-        TMR0L = 0x7C;
-        LATDbits.LATD2 = 0;
-        
-        sec_counter++;
-        if (sec_counter >= 2 * 60) { // when count to 120s, the game is stopped
-            sec_counter = 0;
-            // using RD2 to notify player?
-            LATDbits.LATD2 = 1;
-            uart_send_array( "TIME\r\n", 6);
-            is_game_over = true;
-        }
-        INTCONbits.TMR0IF = 0;
-    }
-    if(INTCONbits.INT0IF) { // button interrupt
-        game_start = true;
-        INTCONbits.INT0IF = 0;
-    }
-}
-
-void __interrupt(low_priority) low_isr(void){
-    if(0){
-
-    }
 }
 
 void main(void){
-    
+    uint8_t apple_x = 0,  apple_y = 0;
     uint8_t prev_tail_x = 0,  prev_tail_y = 0;
-    uint8_t apple_x = 0, apple_y = 0;
     bool first_frame = true;
 
-    system_init();
+    system_init(); // osscon = 8MHz
     
     uart_init(51,0,1,0); //baud 9600
     timer0_init();
@@ -98,17 +96,17 @@ void main(void){
     LATDbits.LATD4 = 1;
     while(!game_start); // wait for starting
     LATDbits.LATD4 = 0;
-    T0CONbits.TMR0ON = 1; 
+    
+    T0CONbits.TMR0ON = 1; // turn on timer0
     
     uint16_t seed = (TMR0H << 8) | TMR0L;
     srand(seed);
     
     generate_apple(&apple_x, &apple_y);
-    send_apple_pos(apple_x, apple_y); 
-    // tft_draw(apple_x * GRID_SIZE, apple_y * GRID_SIZE, RED)
+    // tft_draw(apple_x, apple_y, RED)
     while(1){
-        // test for putty
-        if(uart_line_ready) {
+        // test with putty
+        /*if(uart_line_ready) {
             parse_command_from_pc(uart_rx_buf);
             uart_line_ready = false;
             for(int i = 0; i < 32 ; i++)
@@ -136,14 +134,13 @@ void main(void){
             
             snake_updated = false;
         }
-        
+        */
         if(apple_eaten) {
-            // tft_draw(apple_x * GRID_SIZE, apple_y * GRID_SIZE, BACKGROUND);
+            // tft_draw(apple_x, apple_y, BACKGROUND);
             // If the apple is eaten, then send the apple position to player
             generate_apple(&apple_x, &apple_y);
-            send_apple_pos(apple_x, apple_y); 
             
-            // tft_draw(apple_x * GRID_SIZE, apple_y * GRID_SIZE, RED);
+            // tft_draw(apple_x, apple_y);
             apple_eaten = false;
         }
         

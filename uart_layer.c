@@ -27,7 +27,7 @@ void uart_init(uint16_t gen_reg, unsigned sync,unsigned brgh, unsigned brg16){
     TXSTAbits.BRGH = brgh;
     TXSTAbits.TXEN = 1;     // transmition enable
     
-    IPR1bits.RCIP = 1;
+    IPR1bits.RCIP = 0;     // low priority
     PIE1bits.RCIE = 1;  
     PIR1bits.RCIF = 0;
 }
@@ -48,14 +48,14 @@ void  uart_rx_from_player(uint8_t c) {
             if(c == GAME_OVER) {
                 is_game_over = true;
                 rx_state = RX_WAIT_MSG_TYPE;
-                uart_send_array("UART\r\n", 6);
+                //uart_send_array("UART\r\n", 6);
             }
             else {
                 rx_index = 0;
                 memset(snake_x_rx, 0, sizeof(snake_x_rx));
                 memset(snake_y_rx, 0, sizeof(snake_y_rx));
                 rx_state = RX_WAIT_DATA;
-                uart_send_array("STATE 1\r\n", 9);
+                //uart_send_array("STATE 1\r\n", 9);
             }
             break;
         /*case RX_WAIT_LEN:
@@ -70,7 +70,7 @@ void  uart_rx_from_player(uint8_t c) {
             else {  // odd: y
                 snake_y_rx[rx_index/2] = c;
             }
-            uart_send_array("STATE 2\r\n", 9);
+            //uart_send_array("STATE 2\r\n", 9);
             rx_index++;
             if(rx_index >= snake_len_rx * 2) {
                 rx_state = RX_WAIT_APPLE;
@@ -79,7 +79,7 @@ void  uart_rx_from_player(uint8_t c) {
         case RX_WAIT_APPLE:
             if(c == 1) apple_eaten = true;
             snake_updated = true;   
-            uart_send_array("STATE 3\r\n", 9);
+            //uart_send_array("STATE 3\r\n", 9);
             rx_state = RX_WAIT_MSG_TYPE;
             break;
     }

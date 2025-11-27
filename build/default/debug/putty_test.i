@@ -5028,7 +5028,6 @@ void uart_send_string(uint8_t *c);
 
 static void feed_snake_packet(uint8_t *pos, uint8_t flag)
 {
-
     uart_rx_from_player(1);
     for(int i=0; i<6; i++) {
         uart_rx_from_player(pos[i]);
@@ -5038,7 +5037,6 @@ static void feed_snake_packet(uint8_t *pos, uint8_t flag)
 
 void parse_command_from_pc(char *line)
 {
-
 
 
 

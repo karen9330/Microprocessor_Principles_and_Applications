@@ -5157,11 +5157,17 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 #pragma config EBTRB = OFF
 # 10 "master.c" 2
 # 1 "./master.h" 1
-# 15 "./master.h"
+
+
+
+
+
+
+
+
 void system_init(void);
 void timer0_init(void) ;
 void generate_apple(uint8_t *x, uint8_t *y);
-void send_apple_pos(uint8_t x, uint8_t y);
 void handle_game_over();
 # 11 "master.c" 2
 # 1 "./uart_layer.h" 1
@@ -5195,6 +5201,19 @@ extern volatile char uart_rx_buf[32];
 extern volatile uint8_t uart_rx_idx;
 # 13 "master.c" 2
 
+static void send_apple_pos(uint8_t x, uint8_t y) {
+
+
+
+
+
+
+
+    char buff[32];
+    sprintf(buff, "APPLE x=%u y=%u\r\n", x, y);
+    uart_send_array((uint8_t *)buff, strlen(buff));
+}
+
 void timer0_init(void) {
 
     TRISDbits.RD5 = 0;
@@ -5218,7 +5237,6 @@ void system_init(void) {
     OSCCONbits.IDLEN = 0;
     OSCCONbits.IRCF = 0x07;
     OSCCONbits.SCS = 0x03;
-    while(OSCCONbits.IOFS!=1);
 
 
     ADCON1 = 0x0F;
@@ -5239,19 +5257,7 @@ void generate_apple(uint8_t *x, uint8_t *y) {
 
     *x = rand() % max_x;
     *y = rand() % max_y;
-}
-
-void send_apple_pos(uint8_t x, uint8_t y) {
-
-
-
-
-
-
-
-    char buff[32];
-    sprintf(buff, "APPLE x=%u y=%u\r\n", x, y);
-    uart_send_array((uint8_t *)buff, strlen(buff));
+    send_apple_pos(*x, *y);
 }
 
 void handle_game_over() {
