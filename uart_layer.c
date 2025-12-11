@@ -48,38 +48,31 @@ void  uart_rx_from_player(uint8_t c) {
             if(c == GAME_OVER) {
                 is_game_over = true;
                 rx_state = RX_WAIT_MSG_TYPE;
-                //uart_send_array("UART\r\n", 6);
+                uart_send_array("UART\r\n", 6);
             }
             else {
                 rx_index = 0;
-                memset(snake_x_rx, 0, sizeof(snake_x_rx));
-                memset(snake_y_rx, 0, sizeof(snake_y_rx));
                 rx_state = RX_WAIT_DATA;
                 //uart_send_array("STATE 1\r\n", 9);
             }
             break;
-        /*case RX_WAIT_LEN:
-            snake_len_rx = c;
-            rx_index = 0;
-            rx_state = RX_WAIT_DATA;
-            break;*/
         case RX_WAIT_DATA:
             if((rx_index & 1) == 0) {   // even: x
-                snake_x_rx[rx_index/2] = c;
+                pos[rx_index/2].x = c;
             }
             else {  // odd: y
-                snake_y_rx[rx_index/2] = c;
+                pos[rx_index/2].y = c;
             }
             //uart_send_array("STATE 2\r\n", 9);
             rx_index++;
-            if(rx_index >= snake_len_rx * 2) {
-                rx_state = RX_WAIT_APPLE;
+            if(rx_index >= 6) {
+                rx_state = RX_WAIT_MSG_TYPE;
+                snake_updated = true;   
             }
             break;
-        case RX_WAIT_APPLE:
-            if(c == 1) apple_eaten = true;
+        case RX_WAIT_APPLE:     // Not used
             snake_updated = true;   
-            //uart_send_array("STATE 3\r\n", 9);
+            uart_send_array("STATE 3\r\n", 9);
             rx_state = RX_WAIT_MSG_TYPE;
             break;
     }

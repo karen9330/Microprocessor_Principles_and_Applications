@@ -33,6 +33,8 @@ RX_WAIT_APPLE 2
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 "7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\lwmod.c
 [v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
 "8 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 "8 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\nf_fputs.c
@@ -62,37 +64,33 @@ RX_WAIT_APPLE 2
 "3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\strspn.c
 [v _strspn strspn `(ui  1 e 2 0 ]
 "3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\strtok.c
-[v _strtok strtok `(*.30uc  1 e 2 0 ]
+[v _strtok strtok `(*.39uc  1 e 2 0 ]
 "15 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"27 C:\Users\karen\MPLABXProjects\final_project.X\main.c
+"30 C:\Users\karen\MPLABXProjects\final_project.X\main.c
 [v _high_isr high_isr `IIH(v  1 e 1 0 ]
-"47
+"50
 [v _low_isr low_isr `IIL(v  1 e 1 0 ]
-"80
+"83
 [v _main main `(v  1 e 1 0 ]
-"29 C:\Users\karen\MPLABXProjects\final_project.X\master.c
-[v _timer_init timer_init `(v  1 s 1 timer_init ]
-"49
-[v _io_init io_init `(v  1 s 1 io_init ]
-"72
-[v _generate_apple generate_apple `(v  1 s 1 generate_apple ]
-"90
-[v _check_apple_eaten check_apple_eaten `(a  1 s 1 check_apple_eaten ]
-"96
-[v _srand_init srand_init `(v  1 s 1 srand_init ]
-"103
-[v _notice_to_music notice_to_music `(v  1 s 1 notice_to_music ]
-"119
-[v _hand_game_start hand_game_start `(v  1 s 1 hand_game_start ]
-"126
-[v _handle_game_over handle_game_over `(v  1 s 1 handle_game_over ]
-"145
+"26 C:\Users\karen\MPLABXProjects\final_project.X\master.c
+[v _timer_init timer_init `(v  1 e 1 0 ]
+"46
 [v _system_init system_init `(v  1 e 1 0 ]
-"160
-[v _play_game play_game `(v  1 e 1 0 ]
+"79
+[v _generate_apple generate_apple `(v  1 e 1 0 ]
+"101
+[v _check_apple_eaten check_apple_eaten `(a  1 e 1 0 ]
+"107
+[v _srand_init srand_init `(v  1 e 1 0 ]
+"115
+[v _notice_to_music notice_to_music `(v  1 e 1 0 ]
+"131
+[v _hand_game_start hand_game_start `(v  1 e 1 0 ]
+"137
+[v _handle_game_over handle_game_over `(v  1 e 1 0 ]
 "7 C:\Users\karen\MPLABXProjects\final_project.X\putty_test.c
 [v _feed_snake_packet feed_snake_packet `(v  1 s 1 feed_snake_packet ]
 "15
@@ -105,10 +103,10 @@ RX_WAIT_APPLE 2
 [v i2_uart_send uart_send `(v  1 e 1 0 ]
 "42
 [v _uart_rx_from_player uart_rx_from_player `(v  1 e 1 0 ]
-"81
+"92
 [v _uart_send_array uart_send_array `(v  1 e 1 0 ]
 [v i2_uart_send_array uart_send_array `(v  1 e 1 0 ]
-[s S776 . 1 `uc 1 LATB0 1 0 :1:0 
+[s S963 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -118,7 +116,7 @@ RX_WAIT_APPLE 2
 `uc 1 LATB7 1 0 :1:7 
 ]
 "1114 C:\Program Files\Microchip\xc8\v3.00\pic\include\proc/pic18f4520.h
-[s S785 . 1 `uc 1 LB0 1 0 :1:0 
+[s S972 . 1 `uc 1 LB0 1 0 :1:0 
 `uc 1 LB1 1 0 :1:1 
 `uc 1 LB2 1 0 :1:2 
 `uc 1 LB3 1 0 :1:3 
@@ -127,9 +125,9 @@ RX_WAIT_APPLE 2
 `uc 1 LB6 1 0 :1:6 
 `uc 1 LB7 1 0 :1:7 
 ]
-[u S794 . 1 `S776 1 . 1 0 `S785 1 . 1 0 ]
-[v _LATBbits LATBbits `VES794  1 e 1 @3978 ]
-[s S856 . 1 `uc 1 LATD0 1 0 :1:0 
+[u S981 . 1 `S963 1 . 1 0 `S972 1 . 1 0 ]
+[v _LATBbits LATBbits `VES981  1 e 1 @3978 ]
+[s S200 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -139,7 +137,7 @@ RX_WAIT_APPLE 2
 `uc 1 LATD7 1 0 :1:7 
 ]
 "1338
-[s S865 . 1 `uc 1 LD0 1 0 :1:0 
+[s S209 . 1 `uc 1 LD0 1 0 :1:0 
 `uc 1 LD1 1 0 :1:1 
 `uc 1 LD2 1 0 :1:2 
 `uc 1 LD3 1 0 :1:3 
@@ -148,9 +146,9 @@ RX_WAIT_APPLE 2
 `uc 1 LD6 1 0 :1:6 
 `uc 1 LD7 1 0 :1:7 
 ]
-[u S874 . 1 `S856 1 . 1 0 `S865 1 . 1 0 ]
-[v _LATDbits LATDbits `VES874  1 e 1 @3980 ]
-[s S736 . 1 `uc 1 TRISB0 1 0 :1:0 
+[u S218 . 1 `S200 1 . 1 0 `S209 1 . 1 0 ]
+[v _LATDbits LATDbits `VES218  1 e 1 @3980 ]
+[s S923 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -160,7 +158,7 @@ RX_WAIT_APPLE 2
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "1729
-[s S745 . 1 `uc 1 RB0 1 0 :1:0 
+[s S932 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -169,9 +167,9 @@ RX_WAIT_APPLE 2
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-[u S754 . 1 `S736 1 . 1 0 `S745 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES754  1 e 1 @3987 ]
-[s S253 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S941 . 1 `S923 1 . 1 0 `S932 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES941  1 e 1 @3987 ]
+[s S407 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -181,7 +179,7 @@ RX_WAIT_APPLE 2
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1951
-[s S262 . 1 `uc 1 RC0 1 0 :1:0 
+[s S416 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -190,9 +188,9 @@ RX_WAIT_APPLE 2
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S271 . 1 `S253 1 . 1 0 `S262 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES271  1 e 1 @3988 ]
-[s S816 . 1 `uc 1 TRISD0 1 0 :1:0 
+[u S425 . 1 `S407 1 . 1 0 `S416 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES425  1 e 1 @3988 ]
+[s S280 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -202,7 +200,7 @@ RX_WAIT_APPLE 2
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "2173
-[s S825 . 1 `uc 1 RD0 1 0 :1:0 
+[s S289 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -211,9 +209,9 @@ RX_WAIT_APPLE 2
 `uc 1 RD6 1 0 :1:6 
 `uc 1 RD7 1 0 :1:7 
 ]
-[u S834 . 1 `S816 1 . 1 0 `S825 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES834  1 e 1 @3989 ]
-[s S454 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S298 . 1 `S280 1 . 1 0 `S289 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES298  1 e 1 @3989 ]
+[s S608 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -223,12 +221,12 @@ RX_WAIT_APPLE 2
 `uc 1 PSPIE 1 0 :1:7 
 ]
 "2614
-[s S463 . 1 `uc 1 . 1 0 :4:0 
+[s S617 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IE 1 0 :1:4 
 `uc 1 RC1IE 1 0 :1:5 
 ]
-[u S467 . 1 `S454 1 . 1 0 `S463 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES467  1 e 1 @3997 ]
+[u S621 . 1 `S608 1 . 1 0 `S617 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES621  1 e 1 @3997 ]
 [s S84 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
@@ -245,7 +243,7 @@ RX_WAIT_APPLE 2
 ]
 [u S97 . 1 `S84 1 . 1 0 `S93 1 . 1 0 ]
 [v _PIR1bits PIR1bits `VES97  1 e 1 @3998 ]
-[s S424 . 1 `uc 1 TMR1IP 1 0 :1:0 
+[s S578 . 1 `uc 1 TMR1IP 1 0 :1:0 
 `uc 1 TMR2IP 1 0 :1:1 
 `uc 1 CCP1IP 1 0 :1:2 
 `uc 1 SSPIP 1 0 :1:3 
@@ -255,12 +253,12 @@ RX_WAIT_APPLE 2
 `uc 1 PSPIP 1 0 :1:7 
 ]
 "2768
-[s S433 . 1 `uc 1 . 1 0 :4:0 
+[s S587 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IP 1 0 :1:4 
 `uc 1 RC1IP 1 0 :1:5 
 ]
-[u S437 . 1 `S424 1 . 1 0 `S433 1 . 1 0 ]
-[v _IPR1bits IPR1bits `VES437  1 e 1 @3999 ]
+[u S591 . 1 `S578 1 . 1 0 `S587 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES591  1 e 1 @3999 ]
 [s S114 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
@@ -287,7 +285,7 @@ RX_WAIT_APPLE 2
 ]
 [u S137 . 1 `S114 1 . 1 0 `S123 1 . 1 0 `S126 1 . 1 0 `S129 1 . 1 0 `S132 1 . 1 0 `S135 1 . 1 0 ]
 [v _RCSTAbits RCSTAbits `VES137  1 e 1 @4011 ]
-[s S372 . 1 `uc 1 TX9D 1 0 :1:0 
+[s S526 . 1 `uc 1 TX9D 1 0 :1:0 
 `uc 1 TRMT 1 0 :1:1 
 `uc 1 BRGH 1 0 :1:2 
 `uc 1 SENDB 1 0 :1:3 
@@ -297,7 +295,7 @@ RX_WAIT_APPLE 2
 `uc 1 CSRC 1 0 :1:7 
 ]
 "3357
-[s S381 . 1 `uc 1 TX9D1 1 0 :1:0 
+[s S535 . 1 `uc 1 TX9D1 1 0 :1:0 
 `uc 1 TRMT1 1 0 :1:1 
 `uc 1 BRGH1 1 0 :1:2 
 `uc 1 SENDB1 1 0 :1:3 
@@ -306,13 +304,13 @@ RX_WAIT_APPLE 2
 `uc 1 TX91 1 0 :1:6 
 `uc 1 CSRC1 1 0 :1:7 
 ]
-[s S390 . 1 `uc 1 . 1 0 :6:0 
+[s S544 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 TX8_9 1 0 :1:6 
 ]
-[s S393 . 1 `uc 1 TXD8 1 0 :1:0 
+[s S547 . 1 `uc 1 TXD8 1 0 :1:0 
 ]
-[u S395 . 1 `S372 1 . 1 0 `S381 1 . 1 0 `S390 1 . 1 0 `S393 1 . 1 0 ]
-[v _TXSTAbits TXSTAbits `VES395  1 e 1 @4012 ]
+[u S549 . 1 `S526 1 . 1 0 `S535 1 . 1 0 `S544 1 . 1 0 `S547 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES549  1 e 1 @4012 ]
 "3574
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "3586
@@ -321,7 +319,7 @@ RX_WAIT_APPLE 2
 [v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
 "3610
 [v _SPBRGH SPBRGH `VEuc  1 e 1 @4016 ]
-[s S326 . 1 `uc 1 ABDEN 1 0 :1:0 
+[s S480 . 1 `uc 1 ABDEN 1 0 :1:0 
 `uc 1 WUE 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 BRG16 1 0 :1:3 
@@ -331,26 +329,26 @@ RX_WAIT_APPLE 2
 `uc 1 ABDOVF 1 0 :1:7 
 ]
 "4255
-[s S335 . 1 `uc 1 . 1 0 :4:0 
+[s S489 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 SCKP 1 0 :1:4 
 `uc 1 . 1 0 :1:5 
 `uc 1 RCMT 1 0 :1:6 
 ]
-[s S340 . 1 `uc 1 . 1 0 :5:0 
+[s S494 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 RXCKP 1 0 :1:5 
 ]
-[s S343 . 1 `uc 1 . 1 0 :1:0 
+[s S497 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 W4E 1 0 :1:1 
 ]
-[u S346 . 1 `S326 1 . 1 0 `S335 1 . 1 0 `S340 1 . 1 0 `S343 1 . 1 0 ]
-[v _BAUDCONbits BAUDCONbits `VES346  1 e 1 @4024 ]
+[u S500 . 1 `S480 1 . 1 0 `S489 1 . 1 0 `S494 1 . 1 0 `S497 1 . 1 0 ]
+[v _BAUDCONbits BAUDCONbits `VES500  1 e 1 @4024 ]
 "4688
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-[s S685 . 1 `uc 1 . 1 0 :2:0 
+[s S840 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 ]
 "5561
-[s S688 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S843 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 TMR1CS 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -358,39 +356,39 @@ RX_WAIT_APPLE 2
 `uc 1 T1RUN 1 0 :1:6 
 `uc 1 RD16 1 0 :1:7 
 ]
-[s S696 . 1 `uc 1 . 1 0 :2:0 
+[s S851 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 ]
-[s S702 . 1 `uc 1 . 1 0 :3:0 
+[s S857 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 T1RD16 1 0 :1:7 
 ]
-[u S707 . 1 `S685 1 . 1 0 `S688 1 . 1 0 `S696 1 . 1 0 `S702 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES707  1 e 1 @4045 ]
+[u S862 . 1 `S840 1 . 1 0 `S843 1 . 1 0 `S851 1 . 1 0 `S857 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES862  1 e 1 @4045 ]
 "5638
 [v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
 "5645
 [v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
-[s S948 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S1047 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "5695
-[s S950 . 1 `uc 1 . 1 0 :1:0 
+[s S1049 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S953 . 1 `uc 1 . 1 0 :2:0 
+[s S1052 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S956 . 1 `uc 1 . 1 0 :3:0 
+[s S1055 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S959 . 1 `uc 1 . 1 0 :4:0 
+[s S1058 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S962 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S1061 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -399,22 +397,22 @@ RX_WAIT_APPLE 2
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S971 . 1 `uc 1 BOR 1 0 :1:0 
+[s S1070 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
-[u S977 . 1 `S948 1 . 1 0 `S950 1 . 1 0 `S953 1 . 1 0 `S956 1 . 1 0 `S959 1 . 1 0 `S962 1 . 1 0 `S971 1 . 1 0 ]
-[v _RCONbits RCONbits `VES977  1 e 1 @4048 ]
-[s S916 . 1 `uc 1 SCS 1 0 :2:0 
+[u S1076 . 1 `S1047 1 . 1 0 `S1049 1 . 1 0 `S1052 1 . 1 0 `S1055 1 . 1 0 `S1058 1 . 1 0 `S1061 1 . 1 0 `S1070 1 . 1 0 ]
+[v _RCONbits RCONbits `VES1076  1 e 1 @4048 ]
+[s S890 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 IOFS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 `uc 1 IDLEN 1 0 :1:7 
 ]
 "6106
-[s S922 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S896 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 FLTS 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -422,9 +420,9 @@ RX_WAIT_APPLE 2
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S930 . 1 `S916 1 . 1 0 `S922 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES930  1 e 1 @4051 ]
-[s S589 . 1 `uc 1 T0PS 1 0 :3:0 
+[u S904 . 1 `S890 1 . 1 0 `S896 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES904  1 e 1 @4051 ]
+[s S744 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -432,24 +430,24 @@ RX_WAIT_APPLE 2
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "6189
-[s S596 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S751 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 `uc 1 T0PS3 1 0 :1:3 
 `uc 1 . 1 0 :2:4 
 `uc 1 T016BIT 1 0 :1:6 
 ]
-[u S603 . 1 `S589 1 . 1 0 `S596 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES603  1 e 1 @4053 ]
+[u S758 . 1 `S744 1 . 1 0 `S751 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES758  1 e 1 @4053 ]
 "6256
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "6263
 [v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
-[s S648 . 1 `uc 1 . 1 0 :7:0 
+[s S803 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "6645
-[s S651 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S806 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -458,11 +456,11 @@ RX_WAIT_APPLE 2
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S660 . 1 `uc 1 . 1 0 :7:0 
+[s S815 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S663 . 1 `S648 1 . 1 0 `S651 1 . 1 0 `S660 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES663  1 e 1 @4081 ]
+[u S818 . 1 `S803 1 . 1 0 `S806 1 . 1 0 `S815 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES818  1 e 1 @4081 ]
 [s S27 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
@@ -497,36 +495,52 @@ RX_WAIT_APPLE 2
 [v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
 "4 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\rand.c
 [v _seed seed `ul  1 s 4 seed ]
-"14 C:\Users\karen\MPLABXProjects\final_project.X\main.c
-[v _sec_counter sec_counter `VEus  1 e 2 0 ]
-"15
-[v _apple_eaten apple_eaten `VEa  1 e 1 0 ]
+"13 C:\Users\karen\MPLABXProjects\final_project.X\main.c
+[v _sec_counter sec_counter `VEus  1 s 2 sec_counter ]
+"14
+[v _game_start game_start `VEa  1 s 1 game_start ]
 "16
-[v _is_game_over is_game_over `VEa  1 e 1 0 ]
+[v _snake_len_rx snake_len_rx `VEuc  1 e 1 0 ]
 "17
-[v _snake_updated snake_updated `VEa  1 e 1 0 ]
+[v _snake_x_rx snake_x_rx `VE[50]uc  1 e 50 0 ]
 "18
-[v _game_start game_start `VEa  1 e 1 0 ]
-[s S24 . 2 `uc 1 x 1 0 `uc 1 y 1 1 ]
+[v _snake_y_rx snake_y_rx `VE[50]uc  1 e 50 0 ]
 "19
-[v _pos pos `VE[5]S24  1 e 10 0 ]
+[v _apple_eaten apple_eaten `VEa  1 e 1 0 ]
+"20
+[v _is_game_over is_game_over `VEa  1 e 1 0 ]
+"21
+[v _snake_updated snake_updated `VEa  1 e 1 0 ]
+[s S24 . 2 `uc 1 x 1 0 `uc 1 y 1 1 ]
 "22
-[v _uart_line_ready uart_line_ready `VEa  1 e 1 0 ]
-"23
-[v _uart_rx_buf uart_rx_buf `VE[32]uc  1 e 32 0 ]
-"24
-[v _uart_rx_idx uart_rx_idx `VEuc  1 e 1 0 ]
+[v _pos pos `VE[5]S24  1 e 10 0 ]
 "25
-[v _buff buff `[32]uc  1 e 32 0 ]
-"15 C:\Users\karen\MPLABXProjects\final_project.X\master.c
-[v _first_frame first_frame `a  1 s 1 first_frame ]
-"80 C:\Users\karen\MPLABXProjects\final_project.X\main.c
+[v _uart_line_ready uart_line_ready `VEa  1 e 1 0 ]
+"26
+[v _uart_rx_buf uart_rx_buf `VE[32]uc  1 e 32 0 ]
+"27
+[v _uart_rx_idx uart_rx_idx `VEuc  1 e 1 0 ]
+"83
 [v _main main `(v  1 e 1 0 ]
 {
-"81
-[v main@apple_y apple_y `uc  1 a 1 13 ]
-[v main@apple_x apple_x `uc  1 a 1 12 ]
-"94
+"116
+[v main@i_392 i `uc  1 a 1 69 ]
+"133
+[v main@i_395 i `i  1 a 2 74 ]
+"109
+[v main@i_391 i `i  1 a 2 70 ]
+"130
+[v main@buff buff `[32]uc  1 a 32 35 ]
+"88
+[v main@i i `i  1 a 2 72 ]
+"84
+[v main@apple_y apple_y `uc  1 a 1 77 ]
+[v main@apple_x apple_x `uc  1 a 1 76 ]
+"86
+[v main@first_frame first_frame `a  1 a 1 68 ]
+"85
+[v main@prev_tail_y prev_tail_y `uc  1 a 1 67 ]
+"167
 } 0
 "14 C:\Users\karen\MPLABXProjects\final_project.X\uart_layer.c
 [v _uart_init uart_init `(v  1 e 1 0 ]
@@ -537,77 +551,60 @@ RX_WAIT_APPLE 2
 [v uart_init@brg16 brg16 `ui  1 p 2 27 ]
 "33
 } 0
-"145 C:\Users\karen\MPLABXProjects\final_project.X\master.c
+"26 C:\Users\karen\MPLABXProjects\final_project.X\master.c
+[v _timer_init timer_init `(v  1 e 1 0 ]
+{
+"44
+} 0
+"46
 [v _system_init system_init `(v  1 e 1 0 ]
 {
-"158
-} 0
-"29
-[v _timer_init timer_init `(v  1 s 1 timer_init ]
-{
-"47
-} 0
-"49
-[v _io_init io_init `(v  1 s 1 io_init ]
-{
-"70
-} 0
-"160
-[v _play_game play_game `(v  1 e 1 0 ]
-{
-"188
-[v play_game@i_1138 i `i  1 a 2 8 ]
-"171
-[v play_game@i i `i  1 a 2 6 ]
-"160
-[v play_game@apple_x apple_x `i  1 p 2 0 ]
-[v play_game@apple_y apple_y `i  1 p 2 2 ]
-"214
+"77
 } 0
 "15 C:\Users\karen\MPLABXProjects\final_project.X\putty_test.c
 [v _parse_command_from_pc parse_command_from_pc `(v  1 e 1 0 ]
 {
 "30
-[v parse_command_from_pc@val val `i  1 a 2 45 ]
+[v parse_command_from_pc@val val `i  1 a 2 51 ]
 "25
-[v parse_command_from_pc@pos pos `[6]uc  1 a 6 39 ]
+[v parse_command_from_pc@pos pos `[6]uc  1 a 6 43 ]
 "28
-[v parse_command_from_pc@token token `*.30uc  1 a 1 49 ]
-"25
-[v parse_command_from_pc@idx idx `uc  1 a 1 48 ]
+[v parse_command_from_pc@token token `*.39uc  1 a 2 54 ]
 "27
-[v parse_command_from_pc@p p `*.30uc  1 a 1 47 ]
+[v parse_command_from_pc@p p `*.39uc  1 a 2 49 ]
+"25
+[v parse_command_from_pc@idx idx `uc  1 a 1 53 ]
 "15
-[v parse_command_from_pc@line line `*.30uc  1 p 1 37 ]
+[v parse_command_from_pc@line line `*.39uc  1 p 2 40 ]
 "36
 } 0
 "3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\strtok.c
-[v _strtok strtok `(*.30uc  1 e 2 0 ]
+[v _strtok strtok `(*.39uc  1 e 2 0 ]
 {
-[v strtok@s s `*.30uc  1 p 1 30 ]
-[v strtok@sep sep `*.31Cuc  1 p 1 31 ]
+[v strtok@s s `*.39uc  1 p 2 31 ]
+[v strtok@sep sep `*.31Cuc  1 p 1 33 ]
 "5
-[v strtok@p p `*.30uc  1 s 1 p ]
+[v strtok@p p `*.39uc  1 s 2 p ]
 "13
 } 0
 "3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\strspn.c
 [v _strspn strspn `(ui  1 e 2 0 ]
 {
 "5
-[v strspn@i i `ui  1 a 2 28 ]
+[v strspn@i i `ui  1 a 2 29 ]
 "3
-[v strspn@s s `*.30Cuc  1 p 1 25 ]
-[v strspn@c c `*.31Cuc  1 p 1 26 ]
+[v strspn@s s `*.39Cuc  1 p 2 25 ]
+[v strspn@c c `*.31Cuc  1 p 1 27 ]
 "13
 } 0
 "3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\strcspn.c
 [v _strcspn strcspn `(ui  1 e 2 0 ]
 {
 "5
-[v strcspn@i i `ui  1 a 2 28 ]
+[v strcspn@i i `ui  1 a 2 29 ]
 "3
-[v strcspn@s s `*.30Cuc  1 p 1 25 ]
-[v strcspn@c c `*.31Cuc  1 p 1 26 ]
+[v strcspn@s s `*.39Cuc  1 p 2 25 ]
+[v strcspn@c c `*.31Cuc  1 p 1 27 ]
 "13
 } 0
 "3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\strchr.c
@@ -621,23 +618,37 @@ RX_WAIT_APPLE 2
 [v _feed_snake_packet feed_snake_packet `(v  1 s 1 feed_snake_packet ]
 {
 "10
-[v feed_snake_packet@i i `i  1 a 2 35 ]
+[v feed_snake_packet@i i `i  1 a 2 38 ]
 "7
-[v feed_snake_packet@pos pos `*.30uc  1 p 1 34 ]
+[v feed_snake_packet@pos pos `*.30uc  1 p 1 37 ]
 "13
 } 0
 "42 C:\Users\karen\MPLABXProjects\final_project.X\uart_layer.c
 [v _uart_rx_from_player uart_rx_from_player `(v  1 e 1 0 ]
 {
 [v uart_rx_from_player@c c `uc  1 p 1 wreg ]
+"76
+[v uart_rx_from_player@i i `i  1 a 2 35 ]
+"42
 [v uart_rx_from_player@c c `uc  1 p 1 wreg ]
 "43
 [v uart_rx_from_player@rx_state rx_state `VEE3214  1 s 1 rx_state ]
 "44
 [v uart_rx_from_player@rx_index rx_index `VEuc  1 s 1 rx_index ]
 "42
-[v uart_rx_from_player@c c `uc  1 p 1 33 ]
-"79
+[v uart_rx_from_player@c c `uc  1 p 1 34 ]
+"90
+} 0
+"3 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
+{
+"5
+[v memset@p p `*.39uc  1 a 2 27 ]
+"3
+[v memset@dest dest `*.39v  1 p 2 21 ]
+[v memset@c c `i  1 p 2 23 ]
+[v memset@n n `ui  1 p 2 25 ]
+"10
 } 0
 "7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
@@ -660,35 +671,68 @@ RX_WAIT_APPLE 2
 "8
 [v atoi@neg neg `a  1 a 1 26 ]
 "5
-[v atoi@s s `*.30Cuc  1 p 1 21 ]
+[v atoi@s s `*.39Cuc  1 p 2 21 ]
 "24
 } 0
-"126 C:\Users\karen\MPLABXProjects\final_project.X\master.c
-[v _handle_game_over handle_game_over `(v  1 s 1 handle_game_over ]
+"137 C:\Users\karen\MPLABXProjects\final_project.X\master.c
+[v _handle_game_over handle_game_over `(v  1 e 1 0 ]
 {
 "143
+[v handle_game_over@buff buff `[32]uc  1 a 32 0 ]
+"146
 } 0
-"119
-[v _hand_game_start hand_game_start `(v  1 s 1 hand_game_start ]
+"131
+[v _hand_game_start hand_game_start `(v  1 e 1 0 ]
 {
-"124
+"136
 } 0
+"107
+[v _srand_init srand_init `(v  1 e 1 0 ]
+{
+"110
+[v srand_init@buff buff `[32]uc  1 a 32 0 ]
+"108
+[v srand_init@seed seed `us  1 a 2 32 ]
+"113
+} 0
+"6 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\rand.c
+[v _srand srand `(v  1 e 1 0 ]
+{
+[v srand@s s `ui  1 p 2 21 ]
+"9
+} 0
+"115 C:\Users\karen\MPLABXProjects\final_project.X\master.c
+[v _notice_to_music notice_to_music `(v  1 e 1 0 ]
+{
+[v notice_to_music@type type `i  1 p 2 21 ]
+"129
+} 0
+"79
+[v _generate_apple generate_apple `(v  1 e 1 0 ]
+{
+"88
+[v generate_apple@i i `i  1 a 2 33 ]
 "96
-[v _srand_init srand_init `(v  1 s 1 srand_init ]
-{
-"97
-[v srand_init@seed seed `us  1 a 2 78 ]
-"101
+[v generate_apple@buff buff `[32]uc  1 a 32 0 ]
+"82
+[v generate_apple@is_different is_different `a  1 a 1 32 ]
+"79
+[v generate_apple@x x `*.30uc  1 p 1 76 ]
+[v generate_apple@y y `*.30uc  1 p 1 77 ]
+[s S24 . 2 `uc 1 x 1 0 `uc 1 y 1 1 ]
+[v generate_apple@pos pos `*.30S24  1 p 1 78 ]
+[v generate_apple@len len `uc  1 p 1 79 ]
+"99
 } 0
-"81 C:\Users\karen\MPLABXProjects\final_project.X\uart_layer.c
+"92 C:\Users\karen\MPLABXProjects\final_project.X\uart_layer.c
 [v _uart_send_array uart_send_array `(v  1 e 1 0 ]
 {
-"82
+"93
 [v uart_send_array@i i `uc  1 a 1 30 ]
-"81
+"92
 [v uart_send_array@c c `*.35uc  1 p 2 24 ]
 [v uart_send_array@len len `us  1 p 2 26 ]
-"85
+"96
 } 0
 "35
 [v _uart_send uart_send `(v  1 e 1 0 ]
@@ -707,19 +751,13 @@ RX_WAIT_APPLE 2
 [v strlen@s s `*.30Cuc  1 p 1 21 ]
 "12
 } 0
-"6 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\rand.c
-[v _srand srand `(v  1 e 1 0 ]
-{
-[v srand@s s `ui  1 p 2 21 ]
-"9
-} 0
 "9 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[u S1612 . 2 `*.30uc 1 buffer 1 0 `*.39Cuc 1 source 2 0 ]
+[u S1693 . 2 `*.30uc 1 buffer 1 0 `*.39Cuc 1 source 2 0 ]
 "13
-[s S1615 _IO_FILE 11 `S1612 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v sprintf@f f `S1615  1 a 11 65 ]
+[s S1696 _IO_FILE 11 `S1693 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v sprintf@f f `S1696  1 a 11 65 ]
 "12
 [v sprintf@ap ap `[1]*.30v  1 a 1 64 ]
 "9
@@ -732,9 +770,9 @@ RX_WAIT_APPLE 2
 {
 "1820
 [v vfprintf@cfmt cfmt `*.31uc  1 a 1 57 ]
-[s S1647 _IO_FILE 0 ]
+[s S1728 _IO_FILE 0 ]
 "1817
-[v vfprintf@fp fp `*.30S1647  1 p 1 54 ]
+[v vfprintf@fp fp `*.30S1728  1 p 1 54 ]
 [v vfprintf@fmt fmt `*.31Cuc  1 p 1 55 ]
 [v vfprintf@ap ap `*.30*.30v  1 p 1 56 ]
 "1840
@@ -742,15 +780,15 @@ RX_WAIT_APPLE 2
 "1177
 [v _vfpfcnvrt vfpfcnvrt `(v  1 s 1 vfpfcnvrt ]
 {
-[u S1660 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
+[u S1741 . 4 `i 1 sint 2 0 `ui 1 uint 2 0 `d 1 f 4 0 ]
 "1188
-[v vfpfcnvrt@convarg convarg `S1660  1 a 4 48 ]
+[v vfpfcnvrt@convarg convarg `S1741  1 a 4 48 ]
 "1179
 [v vfpfcnvrt@c c `uc  1 a 1 53 ]
 [v vfpfcnvrt@cp cp `*.31uc  1 a 1 52 ]
-[s S1647 _IO_FILE 0 ]
+[s S1728 _IO_FILE 0 ]
 "1177
-[v vfpfcnvrt@fp fp `*.30S1647  1 p 1 44 ]
+[v vfpfcnvrt@fp fp `*.30S1728  1 p 1 44 ]
 [v vfpfcnvrt@fmt fmt `*.30*.31uc  1 p 1 45 ]
 [v vfpfcnvrt@ap ap `*.30*.30v  1 p 1 46 ]
 "1814
@@ -759,9 +797,9 @@ RX_WAIT_APPLE 2
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 21 ]
-[u S1612 . 2 `*.30uc 1 buffer 1 0 `*.39Cuc 1 source 2 0 ]
-[s S1615 _IO_FILE 11 `S1612 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
-[v fputc@fp fp `*.30S1615  1 p 1 23 ]
+[u S1693 . 2 `*.30uc 1 buffer 1 0 `*.39Cuc 1 source 2 0 ]
+[s S1696 _IO_FILE 11 `S1693 1 . 2 0 `i 1 count 2 2 `[3]uc 1 ungetbuf 3 4 `i 1 ungetcnt 2 7 `i 1 limit 2 9 ]
+[v fputc@fp fp `*.30S1696  1 p 1 23 ]
 "24
 } 0
 "7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\putch.c
@@ -769,38 +807,27 @@ RX_WAIT_APPLE 2
 {
 "9
 } 0
+"7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\lwmod.c
+[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+{
+"10
+[v ___lwmod@counter counter `uc  1 a 1 43 ]
+"7
+[v ___lwmod@dividend dividend `ui  1 p 2 39 ]
+[v ___lwmod@divisor divisor `ui  1 p 2 41 ]
+"25
+} 0
 "7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\lwdiv.c
 [v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
 {
 "10
-[v ___lwdiv@quotient quotient `ui  1 a 2 26 ]
+[v ___lwdiv@quotient quotient `ui  1 a 2 25 ]
 "11
-[v ___lwdiv@counter counter `uc  1 a 1 25 ]
+[v ___lwdiv@counter counter `uc  1 a 1 27 ]
 "7
 [v ___lwdiv@dividend dividend `ui  1 p 2 21 ]
 [v ___lwdiv@divisor divisor `ui  1 p 2 23 ]
 "30
-} 0
-"103 C:\Users\karen\MPLABXProjects\final_project.X\master.c
-[v _notice_to_music notice_to_music `(v  1 s 1 notice_to_music ]
-{
-[v notice_to_music@type type `i  1 p 2 21 ]
-"117
-} 0
-"72
-[v _generate_apple generate_apple `(v  1 s 1 generate_apple ]
-{
-"81
-[v generate_apple@i i `i  1 a 2 52 ]
-"75
-[v generate_apple@is_different is_different `a  1 a 1 51 ]
-"72
-[v generate_apple@x x `*.30uc  1 p 1 44 ]
-[v generate_apple@y y `*.30uc  1 p 1 45 ]
-[s S24 . 2 `uc 1 x 1 0 `uc 1 y 1 1 ]
-[v generate_apple@pos pos `*.30S24  1 p 1 46 ]
-[v generate_apple@len len `uc  1 p 1 47 ]
-"88
 } 0
 "11 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\rand.c
 [v _rand rand `(i  1 e 2 0 ]
@@ -817,18 +844,8 @@ RX_WAIT_APPLE 2
 [v ___lmul@multiplicand multiplicand `ul  1 p 4 25 ]
 "129
 } 0
-"7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
-{
-"10
-[v ___lwmod@counter counter `uc  1 a 1 43 ]
-"7
-[v ___lwmod@dividend dividend `ui  1 p 2 39 ]
-[v ___lwmod@divisor divisor `ui  1 p 2 41 ]
-"25
-} 0
-"90 C:\Users\karen\MPLABXProjects\final_project.X\master.c
-[v _check_apple_eaten check_apple_eaten `(a  1 s 1 check_apple_eaten ]
+"101 C:\Users\karen\MPLABXProjects\final_project.X\master.c
+[v _check_apple_eaten check_apple_eaten `(a  1 e 1 0 ]
 {
 [v check_apple_eaten@apple_x apple_x `uc  1 p 1 wreg ]
 [v check_apple_eaten@apple_x apple_x `uc  1 p 1 wreg ]
@@ -836,14 +853,14 @@ RX_WAIT_APPLE 2
 [s S24 . 2 `uc 1 x 1 0 `uc 1 y 1 1 ]
 [v check_apple_eaten@pos pos `*.30S24  1 p 1 22 ]
 [v check_apple_eaten@apple_x apple_x `uc  1 p 1 24 ]
-"94
+"105
 } 0
-"47 C:\Users\karen\MPLABXProjects\final_project.X\main.c
+"50 C:\Users\karen\MPLABXProjects\final_project.X\main.c
 [v _low_isr low_isr `IIL(v  1 e 1 0 ]
 {
-"62
+"65
 [v low_isr@c c `uc  1 a 1 20 ]
-"78
+"81
 } 0
 "35 C:\Users\karen\MPLABXProjects\final_project.X\uart_layer.c
 [v i1_uart_send uart_send `(v  1 e 1 0 ]
@@ -853,20 +870,20 @@ RX_WAIT_APPLE 2
 [v i1uart_send@c c `uc  1 p 1 14 ]
 "40
 } 0
-"27 C:\Users\karen\MPLABXProjects\final_project.X\main.c
+"30 C:\Users\karen\MPLABXProjects\final_project.X\main.c
 [v _high_isr high_isr `IIH(v  1 e 1 0 ]
 {
-"45
+"48
 } 0
-"81 C:\Users\karen\MPLABXProjects\final_project.X\uart_layer.c
+"92 C:\Users\karen\MPLABXProjects\final_project.X\uart_layer.c
 [v i2_uart_send_array uart_send_array `(v  1 e 1 0 ]
 {
-"82
+"93
 [v i2uart_send_array@i i `uc  1 a 1 7 ]
-"81
+"92
 [v i2uart_send_array@c c `*.35uc  1 p 2 1 ]
 [v i2uart_send_array@len len `us  1 p 2 3 ]
-"85
+"96
 } 0
 "35
 [v i2_uart_send uart_send `(v  1 e 1 0 ]

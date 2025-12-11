@@ -5070,7 +5070,7 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 void uart_init(uint16_t gen_reg, unsigned sync,unsigned brgh, unsigned brg16);
 void uart_send(uint8_t c);
 void uart_rx_from_player(uint8_t c);
-void uart_send_array(uint8_t *c,uint16_t len);
+void uart_send_array(uint8_t *c, uint16_t len);
 void uart_send_string(uint8_t *c);
 # 9 "main.c" 2
 # 1 "./master.h" 1
@@ -5081,27 +5081,32 @@ void uart_send_string(uint8_t *c);
 
 
 
-
-void system_init(void);
-void timer0_init(void) ;
-void generate_apple(uint8_t *x, uint8_t *y);
-void handle_game_over();
-# 10 "main.c" 2
 # 1 "./global.h" 1
-# 16 "./global.h"
-extern volatile uint8_t snake_len_rx;
-extern volatile uint8_t snake_x_rx[50];
-extern volatile uint8_t snake_y_rx[50];
+# 17 "./global.h"
+typedef struct {
+    uint8_t x;
+    uint8_t y;
+}Pos;
 
+extern volatile Pos pos[5];
+extern volatile uint16_t sec_counter;
+extern volatile _Bool game_start;
 extern volatile _Bool is_game_over;
 extern volatile _Bool apple_eaten;
 extern volatile _Bool snake_updated;
 
 
+
 extern volatile _Bool uart_line_ready;
 extern volatile char uart_rx_buf[32];
 extern volatile uint8_t uart_rx_idx;
-# 11 "main.c" 2
+extern char buff[32];
+# 9 "./master.h" 2
+
+void system_init(void);
+void play_game(int apple_x, int apple_y);
+# 10 "main.c" 2
+
 
 # 1 "./putty_test.h" 1
 
@@ -5109,32 +5114,29 @@ extern volatile uint8_t uart_rx_idx;
 
 void parse_command_from_pc(char *line);
 # 13 "main.c" 2
-static volatile uint16_t sec_counter = 0;
-static volatile _Bool game_start = 0;
 
-volatile uint8_t snake_len_rx = 3;
-volatile uint8_t snake_x_rx[50] = {0};
-volatile uint8_t snake_y_rx[50] = {0};
+volatile uint16_t sec_counter = 0;
 volatile _Bool apple_eaten = 0;
 volatile _Bool is_game_over = 0;
 volatile _Bool snake_updated = 0;
+volatile _Bool game_start = 0;
+volatile Pos pos[5];
 
 
 volatile _Bool uart_line_ready = 0;
 volatile char uart_rx_buf[32];
 volatile uint8_t uart_rx_idx = 0;
+char buff[32];
 
 void __attribute__((picinterrupt(("")))) high_isr(void){
     if(INTCONbits.TMR0IF) {
         TMR0H = 0xE1;
         TMR0L = 0x7C;
-        LATDbits.LATD2 = 0;
 
         sec_counter++;
         if (sec_counter >= 2 * 60) {
             sec_counter = 0;
 
-            LATDbits.LATD2 = 1;
             uart_send_array( "TIME\r\n", 6);
             is_game_over = 1;
         }
@@ -5181,77 +5183,16 @@ void __attribute__((picinterrupt(("low_priority")))) low_isr(void){
 
 void main(void){
     uint8_t apple_x = 0, apple_y = 0;
-    uint8_t prev_tail_x = 0, prev_tail_y = 0;
-    _Bool first_frame = 1;
 
     system_init();
 
     uart_init(51,0,1,0);
-    timer0_init();
     _delay((unsigned long)((200)*(8000000/4000.0)));
 
-    TRISDbits.RD4 = 0;
-    LATDbits.LATD4 = 1;
-    while(!game_start);
-    LATDbits.LATD4 = 0;
-
-    T0CONbits.TMR0ON = 1;
-
-    uint16_t seed = (TMR0H << 8) | TMR0L;
-    srand(seed);
-
-    generate_apple(&apple_x, &apple_y);
-
-    while(1){
-
-        if(uart_line_ready) {
-            parse_command_from_pc(uart_rx_buf);
-            uart_line_ready = 0;
-            for(int i = 0; i < 32 ; i++)
-               uart_rx_buf[i] = '\0';
-            uart_rx_idx = 0;
-        }
-        if(snake_updated) {
-            if (first_frame) {
-
-                for (uint8_t i = 0; i < snake_len_rx; i++) {
-
-                }
-
-                prev_tail_x = snake_x_rx[snake_len_rx - 1];
-                prev_tail_y = snake_y_rx[snake_len_rx - 1];
-                first_frame = 0;
-            }
-            else {
-
-
-
-                prev_tail_x = snake_x_rx[snake_len_rx - 1];
-                prev_tail_y = snake_y_rx[snake_len_rx - 1];
-            }
-
-            snake_updated = 0;
-        }
-
-        if(apple_eaten) {
-
-
-            generate_apple(&apple_x, &apple_y);
-
-
-            apple_eaten = 0;
-        }
-
-        if(is_game_over) {
-            uart_send_array("MAIN\r\n", 6);
-            handle_game_over();
-            break;
-        }
-    }
-
     while(1) {
-
-        TRISDbits.RD7 = 0;
-        LATDbits.LATD7 = 1;
+        play_game(apple_x, apple_y);
+        _delay((unsigned long)((200)*(8000000/4000.0)));
+        uart_send_array("RESTART\r\n", 9);
     }
+
 }

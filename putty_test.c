@@ -4,13 +4,12 @@
 #include "global.h"
 #include "uart_layer.h"
 
-static void feed_snake_packet(uint8_t *pos, uint8_t flag)
+static void feed_snake_packet(uint8_t *pos)
 {
     uart_rx_from_player(SNAKE);
     for(int i=0; i<6; i++) {
         uart_rx_from_player(pos[i]);
     }
-    uart_rx_from_player(flag);
 }
 
 void parse_command_from_pc(char *line)
@@ -24,11 +23,14 @@ void parse_command_from_pc(char *line)
     }
     else if (line[0] == 'S') {
         uint8_t pos[6], idx = 0, flag;
-        for(int i=1; line[i] != '\0'; i++) {
-            if(line[i] == ',') continue;
-            pos[idx++] = line[i] - 48;
+        
+        char *p = line + 2;
+        char *token = strtok(p, ",\r\n");
+        while (token != NULL) {
+            int val = atoi(token);
+            pos[idx++] = (uint8_t)val;
+            token = strtok(NULL, ",\r\n");
         }
-        flag = line[strlen(line) - 1] - 48;
-        feed_snake_packet(pos, flag);
+        feed_snake_packet(pos);
     }
 }

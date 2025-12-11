@@ -9,7 +9,7 @@
 void uart_init(uint16_t gen_reg, unsigned sync,unsigned brgh, unsigned brg16);
 void uart_send(uint8_t c);
 void  uart_rx_from_player(uint8_t c);
-void uart_send_array(uint8_t *c,uint16_t len);
+void uart_send_array(uint8_t *c, uint16_t len);
 void uart_send_string(uint8_t *c);
 
 

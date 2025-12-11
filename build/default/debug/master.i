@@ -5164,11 +5164,30 @@ void *memccpy (void *restrict, const void *restrict, int, size_t);
 
 
 
+# 1 "./global.h" 1
+# 17 "./global.h"
+typedef struct {
+    uint8_t x;
+    uint8_t y;
+}Pos;
+
+extern volatile Pos pos[5];
+extern volatile uint16_t sec_counter;
+extern volatile _Bool game_start;
+extern volatile _Bool is_game_over;
+extern volatile _Bool apple_eaten;
+extern volatile _Bool snake_updated;
+
+
+
+extern volatile _Bool uart_line_ready;
+extern volatile char uart_rx_buf[32];
+extern volatile uint8_t uart_rx_idx;
+extern char buff[32];
+# 9 "./master.h" 2
 
 void system_init(void);
-void timer0_init(void) ;
-void generate_apple(uint8_t *x, uint8_t *y);
-void handle_game_over();
+void play_game(int apple_x, int apple_y);
 # 11 "master.c" 2
 # 1 "./uart_layer.h" 1
 
@@ -5182,24 +5201,19 @@ void handle_game_over();
 void uart_init(uint16_t gen_reg, unsigned sync,unsigned brgh, unsigned brg16);
 void uart_send(uint8_t c);
 void uart_rx_from_player(uint8_t c);
-void uart_send_array(uint8_t *c,uint16_t len);
+void uart_send_array(uint8_t *c, uint16_t len);
 void uart_send_string(uint8_t *c);
 # 12 "master.c" 2
-# 1 "./global.h" 1
-# 16 "./global.h"
-extern volatile uint8_t snake_len_rx;
-extern volatile uint8_t snake_x_rx[50];
-extern volatile uint8_t snake_y_rx[50];
 
-extern volatile _Bool is_game_over;
-extern volatile _Bool apple_eaten;
-extern volatile _Bool snake_updated;
+# 1 "./putty_test.h" 1
 
 
-extern volatile _Bool uart_line_ready;
-extern volatile char uart_rx_buf[32];
-extern volatile uint8_t uart_rx_idx;
-# 13 "master.c" 2
+
+void parse_command_from_pc(char *line);
+# 14 "master.c" 2
+
+static _Bool first_frame = 1;
+
 
 static void send_apple_pos(uint8_t x, uint8_t y) {
 
@@ -5208,17 +5222,11 @@ static void send_apple_pos(uint8_t x, uint8_t y) {
 
 
 
-
-    char buff[32];
     sprintf(buff, "APPLE x=%u y=%u\r\n", x, y);
     uart_send_array((uint8_t *)buff, strlen(buff));
 }
 
-void timer0_init(void) {
-
-    TRISDbits.RD5 = 0;
-    LATDbits.LATD5 = 0;
-
+static void timer_init(void) {
 
     T0CONbits.PSA = 0;
     T0CONbits.T0PS = 0b111;
@@ -5226,18 +5234,19 @@ void timer0_init(void) {
     T0CONbits.T0CS = 0;
 
     INTCONbits.TMR0IF = 0;
-    INTCONbits.TMR0IE = 1;
     INTCON2bits.TMR0IP = 1;
+    T0CONbits.TMR0ON = 1;
     TMR0H = 0xE1;
     TMR0L = 0x7C;
+
+
+    T1CONbits.T1CKPS = 0b01;
+    T1CONbits.T1OSCEN = 1;
+    T1CONbits.TMR1CS = 0;
+    T1CONbits.TMR1ON = 1;
 }
 
-void system_init(void) {
-
-    OSCCONbits.IDLEN = 0;
-    OSCCONbits.IRCF = 0x07;
-    OSCCONbits.SCS = 0x03;
-
+static void io_init(void) {
 
     ADCON1 = 0x0F;
     TRISBbits.RB0 = 1;
@@ -5246,23 +5255,160 @@ void system_init(void) {
     INTCONbits.INT0IF = 0;
 
 
+    TRISDbits.RD4 = 0;
+    LATDbits.LATD4 = 1;
+
+
+    TRISDbits.RD5 = 0;
+    LATDbits.LATD5 = 0;
+
+    TRISDbits.RD6 = 0;
+    LATDbits.LATD6 = 0;
+
+    TRISDbits.RD7 = 0;
+    LATDbits.LATD7 = 0;
+}
+
+static void generate_apple(uint8_t *x, uint8_t *y, Pos *pos, uint8_t len) {
+    static uint16_t max_x = 480 / 16;
+    static uint16_t max_y = 320 / 16;
+    _Bool is_different = 0;
+
+    while(!is_different) {
+        *x = rand() % max_x;
+        *y = rand() % max_y;
+        is_different = 1;
+        for(int i=0; i< len; i++) {
+            if((pos[i].x == *x) && (pos[i].y == *y)) {
+                is_different = 0;
+                break;
+            }
+        }
+    }
+}
+
+static _Bool check_apple_eaten(uint8_t apple_x, uint8_t apple_y, Pos *pos) {
+    if((pos[0].x == apple_x) && (pos[0].y == apple_y))
+        return 1;
+    return 0;
+}
+
+static void srand_init() {
+    uint16_t seed = (TMR1H << 8) | TMR1L;
+    srand(seed);
+    sprintf(buff, "seed=%u\r\n", seed);
+    uart_send_array((uint8_t *)buff, strlen(buff));
+}
+
+static void notice_to_music(int type) {
+    if(type == 1) {
+        LATDbits.LATD5 = 1;
+        LATDbits.LATD5 = 0;
+    }
+    else if(type == 2) {
+        LATDbits.LATD6 = 1;
+        LATDbits.LATD6 = 0;
+    }
+    else if(type == 0){
+        LATDbits.LATD7 = 1;
+        LATDbits.LATD7 = 0;
+    }
+
+}
+
+static void hand_game_start() {
+    srand_init();
+    notice_to_music(1);
+    uart_send(1);
+    INTCONbits.TMR0IE = 1;
+}
+
+static void handle_game_over() {
+    uart_send(0);
+    notice_to_music(0);
+
+    LATDbits.LATD4 = 1;
+    INTCONbits.TMR0IE = 0;
+
+
+    sec_counter = 0;
+    apple_eaten = 0;
+    is_game_over = 0;
+    snake_updated = 0;
+    game_start = 0;
+    first_frame = 1;
+
+
+    uart_send_array("GAME OVER\r\n", 12);
+}
+
+void system_init(void) {
+
+    OSCCONbits.IDLEN = 0;
+    OSCCONbits.IRCF = 0x07;
+    OSCCONbits.SCS = 0x03;
+
+    timer_init();
+    io_init();
+
+
     RCONbits.IPEN = 1;
     INTCONbits.GIEH = 1;
     INTCONbits.GIEL = 1;
 }
 
-void generate_apple(uint8_t *x, uint8_t *y) {
-    uint16_t max_x = 480 / 16 - 1;
-    uint16_t max_y = 320 / 16 - 1;
+void play_game(int apple_x, int apple_y) {
+    while(!game_start);
+    hand_game_start();
+    LATDbits.LATD4 = 0;
+    uart_send_array("GAME START\r\n", 12);
 
-    *x = rand() % max_x;
-    *y = rand() % max_y;
-    send_apple_pos(*x, *y);
-}
+    while(1){
 
-void handle_game_over() {
+        if(uart_line_ready) {
+            parse_command_from_pc(uart_rx_buf);
+            uart_line_ready = 0;
+            for(int i = 0; i < 32 ; i++)
+               uart_rx_buf[i] = '\0';
+            uart_rx_idx = 0;
+        }
 
-    char buff[32];
-    sprintf(buff, "GAME OVER\r\n");
-    uart_send_array((uint8_t *)buff, strlen(buff));
+        if(snake_updated) {
+            if (first_frame) {
+                generate_apple(&apple_x, &apple_y, pos, 3);
+
+                first_frame = 0;
+            }
+            else {
+
+            }
+
+            sprintf(buff, "APPLE=%u, %u\r\n", apple_x, apple_y);
+            uart_send_array((uint8_t *)buff, strlen(buff));
+            for(int i=0; i<3; i++) {
+                sprintf(buff, "%u,%u\r\n", pos[i].x, pos[i].y);
+                uart_send_array((uint8_t *)buff, strlen(buff));
+            }
+
+
+            if(check_apple_eaten(apple_x, apple_y, pos)) {
+                uart_send_array("APPLE EATEN\r\n", 13);
+                apple_eaten = 1;
+            }
+            snake_updated = 0;
+        }
+
+        if(apple_eaten) {
+
+            generate_apple(&apple_x, &apple_y, pos, 3);
+            notice_to_music(2);
+
+            apple_eaten = 0;
+        }
+
+        if(is_game_over) {
+            handle_game_over();
+            break;
+        }
+    }
 }

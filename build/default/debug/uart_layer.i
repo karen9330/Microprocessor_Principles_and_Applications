@@ -5011,23 +5011,29 @@ char *tempnam(const char *, const char *);
 void uart_init(uint16_t gen_reg, unsigned sync,unsigned brgh, unsigned brg16);
 void uart_send(uint8_t c);
 void uart_rx_from_player(uint8_t c);
-void uart_send_array(uint8_t *c,uint16_t len);
+void uart_send_array(uint8_t *c, uint16_t len);
 void uart_send_string(uint8_t *c);
 # 5 "uart_layer.c" 2
 # 1 "./global.h" 1
-# 16 "./global.h"
-extern volatile uint8_t snake_len_rx;
-extern volatile uint8_t snake_x_rx[50];
-extern volatile uint8_t snake_y_rx[50];
+# 17 "./global.h"
+typedef struct {
+    uint8_t x;
+    uint8_t y;
+}Pos;
 
+extern volatile Pos pos[5];
+extern volatile uint16_t sec_counter;
+extern volatile _Bool game_start;
 extern volatile _Bool is_game_over;
 extern volatile _Bool apple_eaten;
 extern volatile _Bool snake_updated;
 
 
+
 extern volatile _Bool uart_line_ready;
 extern volatile char uart_rx_buf[32];
 extern volatile uint8_t uart_rx_idx;
+extern char buff[32];
 # 6 "uart_layer.c" 2
 
 typedef enum{
@@ -5078,32 +5084,25 @@ void uart_rx_from_player(uint8_t c) {
             }
             else {
                 rx_index = 0;
-                memset(snake_x_rx, 0, sizeof(snake_x_rx));
-                memset(snake_y_rx, 0, sizeof(snake_y_rx));
                 rx_state = RX_WAIT_DATA;
-                uart_send_array("STATE 1\r\n", 9);
+
             }
             break;
-
-
-
-
-
         case RX_WAIT_DATA:
             if((rx_index & 1) == 0) {
-                snake_x_rx[rx_index/2] = c;
+                pos[rx_index/2].x = c;
             }
             else {
-                snake_y_rx[rx_index/2] = c;
+                pos[rx_index/2].y = c;
             }
-            uart_send_array("STATE 2\r\n", 9);
+
             rx_index++;
-            if(rx_index >= snake_len_rx * 2) {
-                rx_state = RX_WAIT_APPLE;
+            if(rx_index >= 6) {
+                rx_state = RX_WAIT_MSG_TYPE;
+                snake_updated = 1;
             }
             break;
         case RX_WAIT_APPLE:
-            if(c == 1) apple_eaten = 1;
             snake_updated = 1;
             uart_send_array("STATE 3\r\n", 9);
             rx_state = RX_WAIT_MSG_TYPE;

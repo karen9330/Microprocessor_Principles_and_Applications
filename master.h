@@ -5,10 +5,9 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <pic18f4520.h>
+#include "global.h"
 
 void system_init(void);
-void timer0_init(void) ;
-void generate_apple(uint8_t *x, uint8_t *y);
-void handle_game_over();
+void play_game(int apple_x, int apple_y); 
 
 #endif	

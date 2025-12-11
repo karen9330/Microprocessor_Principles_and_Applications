@@ -5002,19 +5002,19 @@ typedef struct {
     uint8_t y;
 }Pos;
 
+extern volatile uint8_t snake_len_rx;
+extern volatile uint8_t snake_x_rx[50];
+extern volatile uint8_t snake_y_rx[50];
+
 extern volatile Pos pos[5];
-extern volatile uint16_t sec_counter;
-extern volatile _Bool game_start;
 extern volatile _Bool is_game_over;
 extern volatile _Bool apple_eaten;
 extern volatile _Bool snake_updated;
 
 
-
 extern volatile _Bool uart_line_ready;
 extern volatile char uart_rx_buf[32];
 extern volatile uint8_t uart_rx_idx;
-extern char buff[32];
 # 5 "putty_test.c" 2
 # 1 "./uart_layer.h" 1
 

@@ -1,4 +1,4 @@
-# 1 "putty_test.c"
+# 1 "master.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 285 "<built-in>" 3
@@ -6,241 +6,41 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "putty_test.c" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 1 3
+# 1 "master.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 1 3
+# 18 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 3
+extern const char __xc8_OPTIM_SPEED;
+
+extern double __fpnormalize(double);
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/xc8debug.h" 1 3
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 1 3
 
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/musl_xc8.h" 1 3
-# 5 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 2 3
+# 5 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 2 3
 
 
 
 
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/features.h" 1 3
-# 11 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 2 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 128 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef unsigned size_t;
-# 143 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef __int24 ssize_t;
-# 174 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef __int24 int24_t;
-# 210 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef __uint24 uint24_t;
-# 255 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef long long off_t;
-# 409 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 25 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-
-
-
-
-
-int ungetc(int, FILE *);
-int getch(void);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-
-
-
-
-void putch(char);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 2 "putty_test.c" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 1 3
-# 25 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
-# 421 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef struct __locale_struct * locale_t;
-# 26 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 2 3
-
-void *memcpy (void *restrict, const void *restrict, size_t);
-void *memmove (void *, const void *, size_t);
-void *memset (void *, int, size_t);
-int memcmp (const void *, const void *, size_t);
-void *memchr (const void *, int, size_t);
-
-char *strcpy (char *restrict, const char *restrict);
-char *strncpy (char *restrict, const char *restrict, size_t);
-
-char *strcat (char *restrict, const char *restrict);
-char *strncat (char *restrict, const char *restrict, size_t);
-
-int strcmp (const char *, const char *);
-int strncmp (const char *, const char *, size_t);
-
-int strcoll (const char *, const char *);
-size_t strxfrm (char *restrict, const char *restrict, size_t);
-
-char *strchr (const char *, int);
-char *strrchr (const char *, int);
-
-size_t strcspn (const char *, const char *);
-size_t strspn (const char *, const char *);
-char *strpbrk (const char *, const char *);
-char *strstr (const char *, const char *);
-char *strtok (char *restrict, const char *restrict);
-
-size_t strlen (const char *);
-
-char *strerror (int);
-
-
-
-
-char *strtok_r (char *restrict, const char *restrict, char **restrict);
-int strerror_r (int, char *, size_t);
-char *stpcpy(char *restrict, const char *restrict);
-char *stpncpy(char *restrict, const char *restrict, size_t);
-size_t strnlen (const char *, size_t);
-char *strdup (const char *);
-char *strndup (const char *, size_t);
-char *strsignal(int);
-char *strerror_l (int, locale_t);
-int strcoll_l (const char *, const char *, locale_t);
-size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
-
-
-
-
-void *memccpy (void *restrict, const void *restrict, int, size_t);
-# 3 "putty_test.c" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 1 3
+# 11 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 2 3
 # 21 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
 typedef long int wchar_t;
+# 128 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef unsigned size_t;
+# 174 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef __int24 int24_t;
+# 210 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef __uint24 uint24_t;
 # 22 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 2 3
 
 int atoi (const char *);
@@ -313,20 +113,14 @@ typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 4 "putty_test.c" 2
-# 1 "./global.h" 1
+# 5 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/xc8debug.h" 2 3
 
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 1 3
-# 18 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 3
-extern const char __xc8_OPTIM_SPEED;
-
-extern double __fpnormalize(double);
 
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/xc8debug.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/xc8debug.h" 3
+
+
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 # 24 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 2 3
@@ -4992,30 +4786,418 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 2 3
-# 5 "./global.h" 2
+# 2 "master.c" 2
+
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdbool.h" 1 3
-# 7 "./global.h" 2
+# 5 "master.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 1 3
+# 24 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
+# 12 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
+# 143 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef __int24 ssize_t;
+# 255 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef long long off_t;
+# 409 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 25 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 2 3
+# 52 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+
+
+
+
+
+int ungetc(int, FILE *);
+int getch(void);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+
+
+
+
+void putch(char);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+__attribute__((__format__(__printf__, 1, 2)))
+int printf(const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int fprintf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int sprintf(char *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 3, 4)))
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+__attribute__((__format__(__printf__, 1, 0)))
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 2, 0)))
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 3, 0)))
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+__attribute__((__format__(__scanf__, 1, 2)))
+int scanf(const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int fscanf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int sscanf(const char *restrict, const char *restrict, ...);
+
+__attribute__((__format__(__scanf__, 1, 0)))
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__scanf__, 2, 0)))
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 6 "master.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/time.h" 1 3
+# 33 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/time.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
+# 82 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef unsigned long time_t;
+# 303 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef void * timer_t;
+
+
+
+
+typedef int clockid_t;
+
+
+
+
+typedef unsigned long clock_t;
+# 323 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+struct timespec { time_t tv_sec; long tv_nsec; };
+
+
+
+
+
+typedef int pid_t;
+# 421 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 34 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/time.h" 2 3
+
+
+
+
+
+
+struct tm {
+ int tm_sec;
+ int tm_min;
+ int tm_hour;
+ int tm_mday;
+ int tm_mon;
+ int tm_year;
+ int tm_wday;
+ int tm_yday;
+ int tm_isdst;
+ long __tm_gmtoff;
+ const char *__tm_zone;
+};
+
+clock_t clock (void);
+time_t time (time_t *);
+double difftime (time_t, time_t);
+time_t mktime (struct tm *);
+size_t strftime (char *restrict, size_t, const char *restrict, const struct tm *restrict);
+struct tm *gmtime (const time_t *);
+struct tm *localtime (const time_t *);
+char *asctime (const struct tm *);
+char *ctime (const time_t *);
+int timespec_get(struct timespec *, int);
+# 73 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/time.h" 3
+size_t strftime_l (char * restrict, size_t, const char * restrict, const struct tm * restrict, locale_t);
+
+struct tm *gmtime_r (const time_t *restrict, struct tm *restrict);
+struct tm *localtime_r (const time_t *restrict, struct tm *restrict);
+char *asctime_r (const struct tm *restrict, char *restrict);
+char *ctime_r (const time_t *, char *);
+
+void tzset (void);
+
+struct itimerspec {
+ struct timespec it_interval;
+ struct timespec it_value;
+};
+# 102 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/time.h" 3
+int nanosleep (const struct timespec *, struct timespec *);
+int clock_getres (clockid_t, struct timespec *);
+int clock_gettime (clockid_t, struct timespec *);
+int clock_settime (clockid_t, const struct timespec *);
+int clock_nanosleep (clockid_t, int, const struct timespec *, struct timespec *);
+int clock_getcpuclockid (pid_t, clockid_t *);
+
+struct sigevent;
+int timer_create (clockid_t, struct sigevent *restrict, timer_t *restrict);
+int timer_delete (timer_t);
+int timer_settime (timer_t, int, const struct itimerspec *restrict, struct itimerspec *restrict);
+int timer_gettime (timer_t, struct itimerspec *);
+int timer_getoverrun (timer_t);
+
+extern char *tzname[2];
+
+
+
+
+
+char *strptime (const char *restrict, const char *restrict, struct tm *restrict);
+extern int daylight;
+extern long timezone;
+extern int getdate_err;
+struct tm *getdate (const char *);
+# 7 "master.c" 2
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
+# 26 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/string.h" 2 3
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
+
+
+
+
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 8 "master.c" 2
+
+# 1 "./conbits.h" 1
+# 12 "./conbits.h"
+#pragma config OSC = INTIO67
+#pragma config FCMEN = OFF
+#pragma config IESO = OFF
+
+
+#pragma config PWRT = OFF
+#pragma config BOREN = OFF
+#pragma config BORV = 3
+
+
+#pragma config WDT = OFF
+#pragma config WDTPS = 32768
+
+
+#pragma config CCP2MX = PORTC
+#pragma config PBADEN = OFF
+#pragma config LPT1OSC = OFF
+#pragma config MCLRE = ON
+
+
+#pragma config STVREN = ON
+#pragma config LVP = OFF
+#pragma config XINST = OFF
+
+
+#pragma config CP0 = OFF
+#pragma config CP1 = OFF
+#pragma config CP2 = OFF
+#pragma config CP3 = OFF
+
+
+#pragma config CPB = OFF
+#pragma config CPD = OFF
+
+
+#pragma config WRT0 = OFF
+#pragma config WRT1 = OFF
+#pragma config WRT2 = OFF
+#pragma config WRT3 = OFF
+
+
+#pragma config WRTC = OFF
+#pragma config WRTB = OFF
+#pragma config WRTD = OFF
+
+
+#pragma config EBTR0 = OFF
+#pragma config EBTR1 = OFF
+#pragma config EBTR2 = OFF
+#pragma config EBTR3 = OFF
+
+
+#pragma config EBTRB = OFF
+# 10 "master.c" 2
+# 1 "./master.h" 1
+
+
+
+
+
+
+
+# 1 "./global.h" 1
 # 17 "./global.h"
 typedef struct {
     uint8_t x;
     uint8_t y;
 }Pos;
 
+extern volatile uint8_t snake_len_rx;
+extern volatile uint8_t snake_x_rx[50];
+extern volatile uint8_t snake_y_rx[50];
+
 extern volatile Pos pos[5];
-extern volatile uint16_t sec_counter;
-extern volatile _Bool game_start;
 extern volatile _Bool is_game_over;
 extern volatile _Bool apple_eaten;
 extern volatile _Bool snake_updated;
 
 
-
 extern volatile _Bool uart_line_ready;
 extern volatile char uart_rx_buf[32];
 extern volatile uint8_t uart_rx_idx;
-extern char buff[32];
-# 5 "putty_test.c" 2
+# 9 "./master.h" 2
+
+
+
+
+
+void system_init(void);
+void timer_init(void);
+void generate_apple(uint8_t *x, uint8_t *y, Pos *pos, uint8_t len);
+void handle_game_over();
+void hand_game_start();
+void notice_to_music(int type);
+_Bool check_apple_eaten(uint8_t apple_x, uint8_t apple_y, Pos *pos);
+# 11 "master.c" 2
 # 1 "./uart_layer.h" 1
 
 
@@ -5030,35 +5212,139 @@ void uart_send(uint8_t c);
 void uart_rx_from_player(uint8_t c);
 void uart_send_array(uint8_t *c, uint16_t len);
 void uart_send_string(uint8_t *c);
-# 6 "putty_test.c" 2
+# 12 "master.c" 2
 
-static void feed_snake_packet(uint8_t *pos)
-{
-    uart_rx_from_player(1);
-    for(int i=0; i<6; i++) {
-        uart_rx_from_player(pos[i]);
-    }
+
+static void send_apple_pos(uint8_t x, uint8_t y) {
+
+
+
+
+
+
+    char buff[32];
+    sprintf(buff, "APPLE x=%u y=%u\r\n", x, y);
+    uart_send_array((uint8_t *)buff, strlen(buff));
 }
 
-void parse_command_from_pc(char *line)
-{
+void timer_init(void) {
+
+    T0CONbits.PSA = 0;
+    T0CONbits.T0PS = 0b111;
+    T0CONbits.T08BIT = 0;
+    T0CONbits.T0CS = 0;
+
+    INTCONbits.TMR0IF = 0;
+    INTCON2bits.TMR0IP = 1;
+    T0CONbits.TMR0ON = 1;
+    TMR0H = 0xE1;
+    TMR0L = 0x7C;
 
 
+    T1CONbits.T1CKPS = 0b01;
+    T1CONbits.T1OSCEN = 1;
+    T1CONbits.TMR1CS = 0;
+    T1CONbits.TMR1ON = 1;
+}
 
-    if (line[0] == 'G') {
+void system_init(void) {
 
-        uart_rx_from_player(0);
-    }
-    else if (line[0] == 'S') {
-        uint8_t pos[6], idx = 0, flag;
+    OSCCONbits.IDLEN = 0;
+    OSCCONbits.IRCF = 0x07;
+    OSCCONbits.SCS = 0x03;
 
-        char *p = line + 2;
-        char *token = strtok(p, ",\r\n");
-        while (token != ((void*)0)) {
-            int val = atoi(token);
-            pos[idx++] = (uint8_t)val;
-            token = strtok(((void*)0), ",\r\n");
+
+    ADCON1 = 0x0F;
+    TRISBbits.RB0 = 1;
+    LATBbits.LATB0 = 0;
+    INTCONbits.INT0IE = 1;
+    INTCONbits.INT0IF = 0;
+
+
+    TRISDbits.RD4 = 0;
+    LATDbits.LATD4 = 0;
+
+
+    TRISDbits.RD5 = 0;
+    LATDbits.LATD5 = 0;
+
+    TRISDbits.RD6 = 0;
+    LATDbits.LATD6 = 0;
+
+    TRISDbits.RD7 = 0;
+    LATDbits.LATD7 = 0;
+
+
+    RCONbits.IPEN = 1;
+    INTCONbits.GIEH = 1;
+    INTCONbits.GIEL = 1;
+}
+
+void generate_apple(uint8_t *x, uint8_t *y, Pos *pos, uint8_t len) {
+    static uint16_t max_x = 480 / 16;
+    static uint16_t max_y = 320 / 16;
+    _Bool is_different = 0;
+
+    while(!is_different) {
+        *x = rand() % max_x;
+        *y = rand() % max_y;
+        is_different = 1;
+        for(int i=0; i< len; i++) {
+            if((pos[i].x == *x) && (pos[i].y == *y)) {
+                is_different = 0;
+                break;
+            }
         }
-        feed_snake_packet(pos);
     }
+
+    char buff[32];
+    sprintf(buff, "APPLE x=%u y=%u\r\n", *x, *y);
+    uart_send_array((uint8_t *)buff, strlen(buff));
+}
+
+_Bool check_apple_eaten(uint8_t apple_x, uint8_t apple_y, Pos *pos) {
+    if((pos[0].x == apple_x) && (pos[0].y == apple_y))
+        return 1;
+    return 0;
+}
+
+void srand_init() {
+    uint16_t seed = (TMR1H << 8) | TMR1L;
+    srand(seed);
+    char buff[32];
+    sprintf(buff, "seed=%u\r\n", seed);
+    uart_send_array((uint8_t *)buff, strlen(buff));
+}
+
+void notice_to_music(int type) {
+    if(type == 1) {
+        LATDbits.LATD5 = 1;
+        LATDbits.LATD5 = 0;
+    }
+    else if(type == 2) {
+        LATDbits.LATD6 = 1;
+        LATDbits.LATD6 = 0;
+    }
+    else if(type == 0){
+        LATDbits.LATD7 = 1;
+        LATDbits.LATD7 = 0;
+    }
+
+}
+
+void hand_game_start() {
+    srand_init();
+    notice_to_music(1);
+    uart_send(1);
+    INTCONbits.TMR0IE = 1;
+}
+void handle_game_over() {
+
+    uart_send(0);
+    notice_to_music(0);
+
+
+    char buff[32];
+    sprintf(buff, "GAME OVER\r\n");
+    uart_send_array((uint8_t *)buff, strlen(buff));
 }
